@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>綠域植栽</title>
+    <link rel="stylesheet" href="./綠域植栽_files/grid.css">
+    <link rel="stylesheet" href="./綠域植栽_files/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./綠域植栽_files/css2" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 60px;
+            background-color: #fff;
+            max-width: 1520px;
+            margin: auto;
+        }
+        .logo{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .logo img{
+            width: 120px;
+        }
+        nav {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+        nav ul{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            justify-content: space-evenly;
+        }
+        nav ul li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            background-color: #fff;
+            /* width: 100px; */
+            /* height: 20px; */
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        nav ul li a:hover{
+            /* color: #655D5D; */
+            color: #0E677B;
+            background-color: #f5f5f5;
+        }
+        nav .icons{
+            display: flex;
+            flex-direction: row;    
+            gap: 30px;
+            margin-left: 20px;
+            margin-right: 20px;        
+        }
+        .icon-item{
+            width: 40px;
+        }
+        .icon-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            background-color: #fff;
+            /* width: 100px; */
+            /* height: 20px; */
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .icon-item a:hover{
+            /* color: #655D5D; */
+            color: #0E677B;
+            background-color: #f5f5f5;
+        }
+        .banner-image {
+            width: 100%;
+            height: auto;
+            border-radius: 48px; /* 預設圓角大小 */
+            
+        }
+        .leaves-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .leaf1 {height: 60px; }
+        .leaf2 {height: 70px; }
+        .leaf3 {height: 65px; }
+        .leaf4 {height: 50px; }
+        .leaf5 {height: 65px; }
+
+        .leaves-container{
+            padding:20px 40px;
+            max-width: 1460px;
+            margin: auto;
+        }
+
+        .featured-container{
+            max-width:1500px ;
+            display: flex;
+            margin: 0px 20px 0px 20px;
+            gap: 20px;
+        }
+        @media (min-width: 1530px) {
+            .featured-container {
+                margin: 0 auto; 
+                gap: 20px;
+            }
+        }
+        .featured-box{
+            /* height: 300px; */
+            /* width: 33.333333%; */
+            background: linear-gradient(to bottom, #017155, #01523E);
+            flex-grow: 1;
+            border-radius: 48px;
+            position: relative;
+
+        }        
+        .featured-row{
+            /* height: 600px; */
+            display: flex;
+
+            gap:20px;
+            width: calc(75.2% - 10px);
+            
+        }
+        .featured-row-col{
+            display: flex;
+
+            width: calc(50% - 10px);
+            flex-direction: column;
+            background-color: #655D5D;
+            gap:20px
+        }
+
+
+        .featured-item {
+            position: relative;
+            width: calc(50% - 20px);
+            display: block;
+            border-radius: 48px;
+            background-color: #000;
+            width: 100%;
+            height: 200px;
+            background-image: url(images/other/fea1.png); /* 背景图片的路径 */
+            background-size: cover; /* 背景图片覆盖整个元素 */
+            background-position: center; /* 背景图片居中 */
+            display: block;
+            padding-top: 25%; /* 为了得到 3:2 的比例 (2/3 = 0.6667) */
+            border-radius: 48px;
+            background-color: #000;
+            display: block;
+
+        
+        }
+        .featured-item-text{
+            position: absolute;
+            bottom: 20px;
+            left: 36px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            letter-spacing: 4px;
+
+        }
+
+        .feature-box-content{
+            color: #fff;
+            font-size: 26px;
+            font-weight: 700;
+            position: absolute;
+            top: 36px;
+            left: 36px;
+            letter-spacing: 4px;
+        }
+        .feature-box-content-2{
+            color: #fff;
+            font-size: 20px;
+            position: absolute;
+            bottom: 36px;
+            left: 36px;
+            line-height: 32px;
+            font-weight: 300;
+        }
+        .divider{
+            position: absolute;
+            background-color: #fff;
+            height: 1px;
+            width: 86%;
+            bottom: 120px;
+            left: 7%;
+            right: 7%;
+
+        }
+        .newpin-item img{
+            width: 100%;
+            display: block;
+            border-radius: 48px;
+
+        }
+        .newpin-container{
+            max-width:1500px ;
+            display: flex;
+            flex-direction: column;
+            margin: 12px 20px 0px 20px;
+
+            /* height: 460px; */
+            background-color:#fff;
+            align-items: center;
+            justify-content: end;
+        }
+        @media (min-width: 1530px) {
+            .newpin-container {
+                margin: 12px auto 0px auto; 
+
+            }
+        }
+        .newpin-tietle{
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: #655D5D;
+
+        }
+        .newpin-scroll{
+            display: flex;
+            flex-direction: row;
+            background-color: #fff;
+        }
+        .newpin-cards{
+            display: flex;
+            justify-self: center;
+            gap:20px;
+        }
+        .newpin-card{
+            /* height: 400px; */
+            background-color: #fff;
+
+        }
+        .newpin-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 30px;
+            color: #655D5D;
+            
+        }
+        .newpin-text-tietle{
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 20px 0 10px 0;
+        }
+        .newpin-text-price{
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .newpin-buttom{
+            background-color: #eee;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .np-dot{
+            background-color: #aaa;
+            border-radius: 40px;
+            height: 6px;
+            width: 6px;
+        }
+        .newpin-buttom-dots{
+            width: 56px;
+            /* background-color: #0E677B; */
+            display: flex;
+            justify-content: space-between;
+        }
+        .newpin-buttom-gogo{
+            position: absolute;
+            right: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="http://127.0.0.1:5500/index.html"><img src="./綠域植栽_files/GreenDivLogo.svg" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/index.html">植物</a></li>
+                <li><a href="http://127.0.0.1:5500/index.html">盆器與配件</a></li>
+                <li><a href="http://127.0.0.1:5500/index.html">護理指南</a></li>
+                <li><a href="http://127.0.0.1:5500/index.html">服務</a></li>
+                <li><a href="http://127.0.0.1:5500/index.html">關於</a></li>
+            </ul>
+            <div class="icons">
+                <div class="icon-item"><a href="http://127.0.0.1:5500/index.html"><img src="./綠域植栽_files/serch.svg" alt=""></a></div>
+                <div class="icon-item"><a href="http://127.0.0.1:5500/index.html"> <img src="./綠域植栽_files/SquirrelSetup.svg" alt=""></a></div>
+                <div class="icon-item"><a href="http://127.0.0.1:5500/index.html"> <img src="./綠域植栽_files/shop.svg" alt=""></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="container banner-container">
+        <div class="row banner-row">
+            <div class="col-12 banner-img">
+                <img src="./綠域植栽_files/banner.jpg" alt="Banner" class="banner-image">
+            </div>
+        </div>
+    </div>
+    <div class="leaves-container">
+        <div class="row leaves-row">
+            <div class="col-12 leaves-item">
+                <img src="./綠域植栽_files/leaf.svg" alt="" class="leaf1">
+                <img src="./綠域植栽_files/leaf2.svg" alt="" class="leaf2">
+                <img src="./綠域植栽_files/leaf3.svg" alt="" class="leaf3">
+                <img src="./綠域植栽_files/leaf4.svg" alt="" class="leaf4">
+                <img src="./綠域植栽_files/leaf2.svg" alt="" class="leaf2">
+                <img src="./綠域植栽_files/leaf5.svg" alt="" class="leaf5">
+            </div>
+        </div>
+    </div>
+    <div class="featured-container">
+        <div class="featured-box">
+            <div class="feature-box-content">
+                <p>特色收藏</p>
+            </div>
+            <div class="divider">
+            </div>
+            <div class="feature-box-content-2">
+                <p>精選特色，<br>挑選最適合你的植物。</p>
+            </div>
+        </div>
+        <div class="featured-row">
+            <div class="featured-row-col">
+                <div class="featured-item">
+                    <div class="featured-item-text">
+                        <p>寵物友善</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-item-text">
+                        <p>大型室內植物</p>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-row-col">
+                <div class="featured-item">
+                    <div class="featured-item-text"><p>弱光性</p>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="featured-item-text"><p>易於照料</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newpin-container">
+        <div class="newpin-tietle">
+            <h2>新品上市</h2>
+        </div>
+        <div class="newpin-scroll">
+            <div class="newpin-arr"></div>
+            <div class="newpin-cards">
+                <div class="newpin-card">
+                    <div class="newpin-item">
+                        <img src="./綠域植栽_files/25.jpg" alt="">
+                    </div>
+                    <div class="newpin-text">
+                        <div class="newpin-text-tietle">
+                            <h3>翠綠終章</h3>
+                        </div>
+                        <div class="newpin-text-price">
+                            <p>$ 1,230 - 2,160</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="newpin-card">
+                    <div class="newpin-item">
+                        <img src="./綠域植栽_files/23.jpg" alt="">
+                    </div>
+                    <div class="newpin-text">
+                        <div class="newpin-text-tietle">
+                            <h3>極樂鳥</h3>
+                        </div>
+                        <div class="newpin-text-price">
+                            <p>$ 1,230 - 2,160</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="newpin-card">
+                    <div class="newpin-item">
+                        <img src="./綠域植栽_files/24.jpg" alt="">
+                    </div>
+                    <div class="newpin-text">
+                        <div class="newpin-text-tietle">
+                            <h3>花葉竹芋</h3>
+                        </div>
+                        <div class="newpin-text-price">
+                            <p>$ 1,230 - 2,160</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="newpin-card">
+                    <div class="newpin-item">
+                        <img src="./綠域植栽_files/21.jpg" alt="">
+                    </div>
+                    <div class="newpin-text">
+                        <div class="newpin-text-tietle">
+                            <h3>椒葉鈍草</h3>
+                        </div>
+                        <div class="newpin-text-price">
+                            <p>$ 1,230 - 2,160</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newpin-arr"></div>
+        </div>
+        <div class="newpin-buttom">
+            <div class="newpin-buttom-dots">
+                <div class="np-dot"></div>
+                <div class="np-dot bk-dot"></div>
+                <div class="np-dot"></div>
+                <div class="np-dot"></div>
+                <div class="np-dot"></div>
+            </div>
+            <div class="newpin-buttom-gogo">
+                <a href="http://127.0.0.1:5500/index.html"><p>查看全部新品</p></a>
+            </div>
+        </div>
+        
+    </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

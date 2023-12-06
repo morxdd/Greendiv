@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大型室內植物 | 綠域植栽</title>
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo/logo_ico.svg" type="image/x-icon">
+</head>
+    <style>
+        body{
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
+        ::selection {
+            background: rgba(151, 228, 74, 0.5); /* 黄绿色背景，50% 不透明度 */
+        }
+        ::-moz-selection {
+            background: rgba(151, 228, 74, 0.5); 
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 60px;
+            background-color: #fff;
+            max-width: 1520px;
+            margin: auto;
+        }
+        .logo{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .logo img{
+            width: 120px;
+        }
+        nav {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+        nav .main-ul{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        nav .main-ul a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;         
+        }
+
+        nav .main-ul a:hover{
+            transition: none;
+            font-weight: 700;
+        }
+        nav .li-a a{
+            font-weight: 700;
+        }
+        .about-ul{
+            position: absolute; 
+            width: 180px;
+            height: 100px;
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-radius: 20px;
+            display: none;
+            gap: 8px;
+            background-color: #fff6;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #ccc;
+            z-index: 1;
+            box-shadow: 0 4px 10px #0002;
+        }
+        .about-ul a{
+            height: 20px;
+            width: 120px;
+        }
+        .main-about-li{
+            position: relative;
+        }
+        .main-about-li:hover .about-ul {
+            display: flex;
+        }
+        .main-about-li:hover .about-ul a {
+            height: 10px;
+            font-weight: 300;
+        }
+        .about-ul a:hover {
+            font-weight: 700 !important;
+        }
+        nav .icons{
+            display: flex;
+            flex-direction: row;    
+            gap: 30px;
+            margin-left: 20px;
+            margin-right: 20px;        
+        }
+        .icon-item{
+            width: 40px;
+        }
+        .icon-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            background-color: #fff;
+            /* width: 100px; */
+            /* height: 20px; */
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .icon-item a:hover{
+            /* color: #655D5D; */
+            color: #0E677B;
+            background-color: #f5f5f5;
+        }
+        .goods-banner-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 20px 20px;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        @media (min-width: 1530px) {
+            .goods-banner-container {
+                margin: 0px auto 20px auto; 
+            }
+        }
+        .goods-banner-textbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: calc(25% - 10px);
+            color: #444;
+        }
+        .goods-banner-textbox-title{
+            font-size: 32px;
+            font-weight: 700;
+            padding: 12px;
+        }
+        .goods-banner-textbox-line{
+            background-color: #5EAAA5;
+            height: 2px;
+            width: 72%;
+            margin: 10px 0;
+        }
+        .goods-banner-textbox-text{
+            width: 72%;
+            font-size: 20px;
+            line-height: 1.5 ;
+            text-align: center;
+            font-weight: 500;
+            color: #888;
+        }
+
+
+        .goods-banner-imagebox{
+            width: calc(75% - 10px);
+            position: relative;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+            aspect-ratio: 2/1;
+        }
+        .goods-banner-imagebox img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 90%;
+        }
+        .all-goods-container{
+            max-width: 1500px ;
+            display: flex;
+            flex-direction: column;
+            margin: 0px 20px 0px 20px;
+            font-size: 16px;
+            overflow: hidden;
+            align-items: center;
+            padding-bottom: 160px;
+        }
+        @media (min-width: 1530px) {
+            .all-goods-container {
+                margin: 0 auto 0px auto; 
+            }
+        }
+        .filter-switch{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 96%;
+        }
+        .filter-button{
+            display:flex;
+            align-items: center;
+            border: 1px solid #97E44A;
+            padding: 4px 16px 4px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #555;
+        }
+        .filter-button:hover {
+            background-color: #97E44A; 
+            color: #000;
+        }
+        .greyline{
+            width: 100vw;
+            height: 1px;
+            background-color: #ccc;
+            margin: 8px 0 20px 0;
+        }
+        .filter-row{
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            gap: 20px;
+            position: relative;
+        }
+        .filter-pane{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 40px;
+            width: calc(25% - 10px);
+            background-color: #eee;
+            height: calc(100% + 40px);
+            border-radius: 48px;
+            transition: .5s ease;
+            position: absolute;
+            left: calc((25%)*-1);
+            line-height: 2.2;
+            font-weight: 400;
+            
+        }
+        .pane-title{
+            font-size: 18px;
+            color: #0E677B;
+            font-weight: 300;
+        }
+        .pane-title a{
+            color: #0E677B;
+            text-decoration: none;
+        }
+        .pane-title a:hover{
+            font-weight: 400;
+        }
+        .pane-text{
+            font-size: 16px;
+            color: #444;
+            font-weight: 400;
+        }
+        .pane-line{
+            height: 1px;
+            width: 100%;
+            background-color: #aaa;
+            margin: 20px 0;
+            align-self: center;
+        }
+        .goods-container-row{
+            height: 100%;       
+            width: 100%;   
+            transition: .5s ease; 
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .goods-container{
+            width: 84%;
+            transition: .5s ease;
+            
+        }
+        .toggle-filter-checkbox:checked ~ .filter-row .filter-pane {
+            left: 0;
+        }
+        .toggle-filter-checkbox:checked ~ .filter-row .goods-container-row {
+            width: calc(75% - -10px);
+        }
+        .toggle-filter-checkbox:checked ~ .filter-row .goods-container {
+            width: calc(100% - 20px);
+            transform: translateX(10px);
+
+        }
+        .toggle-filter-checkbox{
+            display: none;
+        }
+        .goods-row{
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 0 40px 0;
+        }
+        .goods-card{
+            background-color: #fff;
+            width: calc((100vw - 40px) * 0.75 / 3 - 20px);
+            max-width: 358px ;
+            aspect-ratio: 3/4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .goods-card-pic {
+            border-radius: 48px;
+            overflow: hidden;
+            
+        }
+        .goods-card-pic img{
+            width: 100%;
+            transform-origin: 50% 80%;
+            transition: transform 0.3s ease;
+        }
+        .goods-card-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .goods-card-text-title a{
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 0px 0 6px 0;
+        }
+        .goods-card-text-title a{
+            text-decoration: none;
+            color: #555;
+            display: block;
+        }
+        .goods-card-text-subtitle{
+            font-size: 16px;
+            font-weight: 400;
+            color: #aaa;
+            transform: translateY(-6px);
+        }
+        .goods-card-text-price{
+            font-size: 16px;
+            font-weight: 400;
+            color: #555;
+        }
+        .goods-card:hover .goods-card-text-title a {
+        /* 这里添加您希望的hover样式 */
+            color: #111; 
+        }
+        .goods-card:hover .goods-card-text-price {
+        /* 觸摸父元素 子元素變化 */
+            color: #111; 
+        }
+        .goods-card:hover .goods-card-text-subtitle {
+            color: #888;
+        }
+        .goods-card:hover .goods-card-pic img {
+            transform: scale(1.1);
+        }
+        .footer-container-container{
+            height: 100%;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            background-color: #655D5D;
+        }
+        .footer-container{
+            display:flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+            background-color: #655D5D;
+            height: 320px;
+            position: relative; 
+            flex-direction: column;
+            max-width: 1500px;
+        }
+        .footer-row{
+            display: flex;
+            width: 84%;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+
+        }
+        .footer-logos{
+
+            width: 150px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .footer-logos img{
+            width: 100%;
+        }
+        .footer-logos-icons{
+            display: flex;
+            flex-direction: row;
+            gap:10px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .footer-icon{
+            width: 30px;
+        }
+        .footer-buttom{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #ccc;
+            font-weight: 300;
+            border-top: 1px solid #ccc;
+            width: 96%;
+        }
+        .footer-infos{
+
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            line-height: 1.5;
+        }
+        .footer-info-title{
+            color: #fff;
+            padding: 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: -12px;
+            
+        }
+        .footer-info-text-1st{
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+        }
+        .footer-info-text{
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        .footer-info-text a{
+            color: #ccc;
+        }
+        .footer-info-text a:hover{
+            color: #97E44A;
+            text-decoration: none;
+        }
+
+        </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo/GreenDivLogo.svg" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul class="main-ul">
+                <li class="main-li li-a"><a href="goods.html">植物</a></li>
+                <li class="main-li li-b"><a href="">盆器與配件</a></li>
+                <li class="main-li li-c"><a href="">護理指南</a></li>
+                <li class="main-li li-d"><a href="server.html">服務</a></li>
+                <li class="main-li main-about-li li-e">
+                    <a href="about.html">關於</a>
+                    <ul class="about-ul">
+                        <li class="about-li"><a href="about.html">關於我們</a></li>
+                        <li class="about-li"><a href="contact.html">聯絡我們</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="icons">
+                <div class="icon-item"><a href=""><img src="images/icons/serch.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/SquirrelSetup.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/shop.svg" alt=""></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="goods-banner-container">
+        <div class="goods-banner-textbox">
+            <div class="goods-banner-textbox-title">大型室內植物</div>
+            <div class="goods-banner-textbox-text"><p>60公分以上，大有來頭</p></div>
+        </div>
+        <div class="goods-banner-imagebox">
+            <img src="images/other/large.webp" alt="">
+        </div>
+    </div>
+    <div class="all-goods-container">
+        <div class="filter-switch">
+            <label for="toggle-filter" class="filter-button">
+                篩選器</label>
+            <div class="filter-order">排列方式：最受歡迎</div>
+        </div>
+        <div class="greyline"></div>
+        <input type="checkbox" id="toggle-filter" class="toggle-filter-checkbox">
+        <div class="filter-row">
+            <div class="filter-pane">
+            <p class="pane-title"><a href="goods.html">所有植物</a></p>
+            <p class="pane-title"><a href="pet-frienfly.html">寵物友善</a></p>
+            <p class="pane-title"><a href="pet-large.html">大型植物</a></p>
+            <p class="pane-title"><a href="#">耐弱光性</a></p>
+            <p class="pane-title"><a href="#">適合初學者</a></p>
+            <div class="pane-line"></div>
+            <p class="pane-title">尺寸</p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 小型
+                </label>
+            </p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 中等
+                </label>
+            </p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 大型
+                </label>
+            </p>
+            <div class="pane-line"></div>
+            <p class="pane-title">光照需求</p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 直接照射
+                </label>
+            </p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 間接照射
+                </label>
+            </p>
+            <p class="pane-text">
+                <label>
+                    <input type="checkbox"> 低弱光需求
+                </label>
+            </p>
+            <div class="pane-line"></div>
+            <p class="pane-title"><a href="#">促銷商品</a></p>           
+            </div>
+            <div class="goods-container-row">
+                <div class="goods-container">
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/1.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">ZZ植物</a></div>
+                            <div class="goods-card-text-subtitle">耐旱的室內植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/2.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">三彩球蘭</a></div>
+                            <div class="goods-card-text-subtitle">隨和的蔓生植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="products/23-bird-of-paradise.html"><img src="images/plants/23.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="23-bop-details.html">天堂鳥</a></div>
+                            <div class="goods-card-text-subtitle">熱帶風情</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/4.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">卡拉西亞響尾蛇</a></div>
+                            <div class="goods-card-text-subtitle">晝夜升降葉片運動</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/5.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">卡拉曼西樹</a></div>
+                            <div class="goods-card-text-subtitle">現在出貨滿載水果</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/6.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">史特羅曼三重奏</a></div>
+                            <div class="goods-card-text-subtitle">喜歡高濕度</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/7.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">白蘭花</a></div>
+                            <div class="goods-card-text-subtitle">溫暖的室內環境中更快開花</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/8.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">竹芋波星</a></div>
+                            <div class="goods-card-text-subtitle">毛茸茸的栗色底面</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/9.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">和平百合</a></div>
+                            <div class="goods-card-text-subtitle">家庭和辦公室的珍貴選擇</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/10.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">金色綠蘿掛籃</a></div>
+                            <div class="goods-card-text-subtitle">非常適合初學者</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/11.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">金錢樹</a></div>
+                            <div class="goods-card-text-subtitle">有趣的編織樹幹</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/12.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">客廳棕櫚</a></div>
+                            <div class="goods-card-text-subtitle">易於護理的熱門植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/13.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">美葉蘭</a></div>
+                            <div class="goods-card-text-subtitle">低調而豐富的色彩</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/14.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">胡椒雨滴</a></div>
+                            <div class="goods-card-text-subtitle">適合寵物的室內植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/15.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">風車棕櫚</a></div>
+                            <div class="goods-card-text-subtitle">輕鬆帶來叢林的氛圍</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/16.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">蛇草勞倫蒂</a></div>
+                            <div class="goods-card-text-subtitle">可以忍受弱光和乾旱</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/17.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">鳥巢蕨</a></div>
+                            <div class="goods-card-text-subtitle">適合作為室內植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/18.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">鹿角蕨</a></div>
+                            <div class="goods-card-text-subtitle">像鹿角的奇特葉子</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/19.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">喜林芋綠</a></div>
+                            <div class="goods-card-text-subtitle">稀有、低維護的熱帶植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/20.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">琴葉榕</a></div>
+                            <div class="goods-card-text-subtitle">優雅豐富的葉片</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/21.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">鈍葉椒草</a></div>
+                            <div class="goods-card-text-subtitle">隨和的室內植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/22.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">大開瓶器巴豆</a></div>
+                            <div class="goods-card-text-subtitle">需要明亮的直射陽光</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/3.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">冬青櫻桃梅</a></div>
+                            <div class="goods-card-text-subtitle">聖誕季限定</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/24.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">翠紋竹芋</a></div>
+                            <div class="goods-card-text-subtitle">晝夜升降葉片運動</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/25.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">翠綠終章</a></div>
+                            <div class="goods-card-text-subtitle">優雅豐富的葉片</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/26.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">銀星球蘭</a></div>
+                            <div class="goods-card-text-subtitle">易於照料的熱帶藤本植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/27.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">銀線虎尾蘭</a></div>
+                            <div class="goods-card-text-subtitle">淺銀綠色的葉片</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/28.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">橄欖樹</a></div>
+                            <div class="goods-card-text-subtitle">最受歡迎的室內植物</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/29.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">諾福克島松</a></div>
+                            <div class="goods-card-text-subtitle">聖誕季限定</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/30.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">龍血樹綠</a></div>
+                            <div class="goods-card-text-subtitle">獨特的輪廓和高度</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods-row">
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"><img src="images/plants/31.jpg" alt=""></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#">龜背竹</a></div>
+                            <div class="goods-card-text-subtitle">奇特的天然葉孔</div>
+                            <div class="goods-card-text-price">$1,120 - $2,130</div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#"></a></div>
+                            <div class="goods-card-text-subtitle"></div>
+                            <div class="goods-card-text-price"></div>
+                        </div>
+                    </div>
+                    <div class="goods-card">
+                        <div class="goods-card-pic"><a href="#"></a></div>
+                        <div class="goods-card-text">
+                            <div class="goods-card-text-title"><a href="#"></a></div>
+                            <div class="goods-card-text-subtitle"></div>
+                            <div class="goods-card-text-price"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container-container">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-infos">
+                    <div class="footer-info-1st">
+                        <div class="footer-info-title footer-info-1st-title">綠化無限</div>
+                        <div class="footer-info-text-1st">
+                            <div class="footer-info-text"><a href="">隱私政策</a></div>
+                            <div class="footer-info-text"><a href="">服務條款</a></div>
+                            <div class="footer-info-text"><a href="">門市資訊</a></div>
+                            <div class="footer-info-text"><a href="">會員權益</a></div>
+                            <div class="footer-info-text"><a href="">加入我們</a></div>
+                        </div>
+                    </div>
+                    <div class="footer-info-2nd">
+                        <div class="footer-info-title footer-info-2nd">聯絡資訊</div>
+                            <div class="footer-info-text-2nd">
+                            <div class="footer-info-text footer-info-text-2nd">客服專線：03 - 2560883</div>
+                            <div class="footer-info-text footer-info-text-2nd">客服時間：週二至週六 9:00-15:00</div>
+                            <div class="footer-info-text footer-info-text-2nd">信箱：<a href="">service.taiwan@green.div.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-logos">
+                    <div class="footer-logos-logo"><img src="images/logo/GreenDivLogo-07.svg"></div>
+                    <div class="footer-logos-icons">
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Facebook_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Instagram_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _YouTube_.svg"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-buttom">
+            <p>Copyright © 台灣昆迪芙股份有限公司 All Rights Reserved. 本網站為緯育TibaMe前端工程師班第80期學員專題作品，本平台僅供學習、展示之用。</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

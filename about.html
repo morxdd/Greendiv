@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 | 綠域植栽</title>
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo/logo_ico.svg" type="image/x-icon">
+</head>
+    <style>
+        body{
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
+        ::selection {
+            background: rgba(151, 228, 74, 0.5); /* 黄绿色背景，50% 不透明度 */
+        }
+        ::-moz-selection {
+            background: rgba(151, 228, 74, 0.5); 
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 60px;
+            background-color: #fff;
+            max-width: 1520px;
+            margin: auto;
+        }
+        .logo{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .logo img{
+            width: 120px;
+        }
+        nav {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+        nav .main-ul{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        nav .main-ul a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;         
+        }
+
+        nav .main-ul a:hover{
+            transition: none;
+            font-weight: 700;
+        }
+        nav .li-e a{
+            font-weight: 700;
+        }
+        .about-ul{
+            position: absolute; 
+            width: 180px;
+            height: 100px;
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-radius: 20px;
+            display: none;
+            gap: 8px;
+            background-color: #fff6;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #ccc;
+        }
+        .about-ul a{
+            height: 20px;
+            width: 120px;
+        }
+        .main-about-li{
+            position: relative;
+        }
+        .main-about-li:hover .about-ul {
+            display: flex;
+        }
+        .main-about-li:hover .about-ul a {
+            height: 10px;
+            font-weight: 300;
+        }
+        .about-ul a:hover {
+            font-weight: 700 !important;
+        }
+        nav .icons{
+            display: flex;
+            flex-direction: row;    
+            gap: 30px;
+            margin-left: 20px;
+            margin-right: 20px;        
+        }
+        .icon-item{
+            width: 40px;
+        }
+        .icon-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            background-color: #fff;
+            /* width: 100px; */
+            /* height: 20px; */
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .icon-item a:hover{
+            /* color: #655D5D; */
+            color: #0E677B;
+            background-color: #f5f5f5;
+        }
+        .banner-container{
+            max-width: 1500px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:url(images/other/about_banner.jpg);
+            background-position: center;
+            background-size: cover;
+            aspect-ratio: 5/2;
+            margin: 0 20px 40px 20px;
+            border-radius: 48px;
+        }
+        @media (min-width: 1530px) {
+            .banner-container {
+                margin: 0 auto 40px auto; 
+            }
+        }
+        .banner-box{
+            width: 72%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            gap: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+
+        }
+        .banner-box-title{
+            font-size: 32px;
+            font-weight: 500;
+        }
+        .banner-box-text{
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .who-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        @media (min-width: 1530px) {
+            .who-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .who-textbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: calc(33.333333% - 10px);
+            color: #666;
+        }
+        .who-textbox-title{
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: #655D5D;
+        }
+        .who-textbox-line{
+            background-color: #5EAAA5;
+            height: 2px;
+            width: 72%;
+            margin: 10px 0;
+        }
+        .who-textbox-text{
+            width: 72%;
+            font-size: 14px;
+            line-height: 1.5 ;
+        }
+
+
+        .who-imagebox{
+            width: calc(66.6666% - 10px);
+            position: relative;
+            padding-top: 33.33333%;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+        }
+        .who-imagebox img{
+            position: absolute;
+            width: 100%;
+            top: 20;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            object-fit: cover;
+            
+            object-position: center bottom;
+        }
+        .leaves-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .leaf1 {height: 60px; }
+        .leaf2 {height: 70px; }
+        .leaf3 {height: 65px; }
+        .leaf4 {height: 60px; }
+        .leaf5 {height: 65px; }
+
+        .leaf1:hover path {
+            fill: #97E44A;
+            transition: none;
+        }
+        .leaf2:hover path {
+            fill: #97E44A;
+            transition: none;
+        }
+        .leaf3:hover path {
+            fill: #97E44A;
+            transition: none;
+        }
+        .leaf4:hover path {
+            fill: #97E44A;
+            transition: none;
+        }
+        .leaf5:hover path {
+            fill: #97E44A;
+            transition: none;
+        }
+
+        .leaf1 path, .leaf2 path, .leaf3 path, .leaf4 path, .leaf5 path {
+    transition: fill 1.2s ease; /* 指定過渡效果作用於 fill 屬性，持續 0.3 秒，使用 ease 時間函數 */
+}
+        .leaves-container{
+            padding:20px 40px;
+            max-width: 1460px;
+            margin: auto;
+        }
+        .greyline{
+            max-width: 1500px;
+            height: 1px;
+            background-color: #ccc;
+            margin: 0 auto 20px auto;
+        }
+        @media (min-width: 1530px) {
+            .greyline {
+                margin: 0px auto 20px auto; 
+            }
+        }
+        .eco-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(to bottom, #234382, #0D1E5B);
+            border-radius: 68px;
+        }
+        @media (min-width: 1530px) {
+            .eco-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .eco-imagebox{
+            width: calc(66.666666% - 20px);
+            background: url(images/other/eco.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding-top: 32%;
+            margin: 20px;
+            margin-right: 0px;
+            border-radius: 48px;
+        }
+        .eco-textbox{
+            margin-right: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            line-height: 1.5;
+            font-size: 18px;
+            font-weight: 300;
+        }
+        .eco-textbox-title{
+            font-size: 28px;
+            font-weight: 600;
+            padding: 12px;
+            letter-spacing: 2px;
+        }
+        .ecoth-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            justify-content: space-between;
+            gap: 20px;
+
+        
+        }
+        @media (min-width: 1530px) {
+            .ecoth-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .ecoth-col{
+            gap: 120px;
+            display: flex;
+            flex-direction: column;
+            width: calc(50% - 20px);
+        }
+        .ecoth-col-left{
+            display: block;
+            margin-top: 4%;
+        }
+        .ecoth-col-right{
+            display: block;
+            margin-top: 24%;
+            margin-bottom: 8%;
+        }
+        .ecoth-line{
+            background-color: #97E44A;;
+            width: 2px;
+            flex-grow: 1;
+        }
+        .ecoth-card{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            gap: 20px;
+            color: #444;
+            aspect-ratio: 4/3;
+            width: 100%;
+            padding: 80px 0;            
+        }
+        .ecoth-card-title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            padding: 10px 0;
+            color: #777;
+        }
+        .ecoth-card-image{
+            width: calc(100% - 10px);
+            aspect-ratio: 2/1;
+            overflow: hidden;
+            border-radius: 48px;
+            background-color: #000;
+        
+        }
+        .ecoth-card-image img{
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+
+            
+        }
+        .ecoth-card-text{
+            font-size: 15px;
+            width: 84%;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+        .ecoth-col .ecoth-card:first-child {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .ecoth-col .ecoth-card:nth-child(2) {
+            border-bottom: 1px solid #ccc;
+        }
+        .comment-container{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1500px;
+            background: url(images/other/abbg2.jpg);
+            height: 500px;
+            background-size: cover; /* 背景图片覆盖整个元素 */
+            background-position: center; /* 背景图片居中 */
+            background-attachment: fixed; /* 固定背景图片 */
+            position: relative; /* 为伪元素定位做准备 */
+            flex-direction: column;
+            margin: 0 20px 0px 20px;
+            border-radius: 48px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            box-shadow: 4px 8px 10px #0002 inset;
+        }
+        @media (min-width: 1530px) {
+            .comment-container {
+                margin: 0 auto 0px auto; 
+            }
+        }
+        .comment-card{
+            height: 400px;
+            position: relative;
+            border-radius: 48px;
+            width: 450px;
+            height: 200px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            background-color: #fff5;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 4px 8px 20px #0002;
+        }
+        .comment-card-col{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            margin: 32px 36px 12px 36px;
+
+            height: 100%;
+        }
+        .comment-card-text{
+            text-align: center;
+            line-height: 1.5;
+        }
+        .comment-card-gndv{
+            width: 100px;
+        }
+        .comment-card-gndv img{
+            width: 100%;
+        }
+
+        .comment-card-logo{
+            width: 40px;
+            position: absolute;
+            bottom: 16px;
+            right: 36px;
+
+        }
+        .button-container{
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1500px;
+        }
+        .button-col{
+            width: 16%;
+        }
+        .server-buttom a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #97E44A;
+            height: 42px;
+            width: 150px;
+            text-decoration: none;
+            border-radius: 48px;
+            color: #444;
+            letter-spacing: 2px;
+            /* margin-bottom: 20px; */
+            margin: 40px auto 40px auto;
+        }
+
+        .server-buttom a:hover{
+            border: 1px solid transparent;
+            background-color: #97E44A;
+            color: #000;
+        }
+        .footer-container-container{
+            height: 100%;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            background-color: #655D5D;
+        }
+        .footer-container{
+            display:flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+            background-color: #655D5D;
+            height: 320px;
+            position: relative; 
+            flex-direction: column;
+            max-width: 1500px;
+        }
+        .footer-row{
+            display: flex;
+            width: 84%;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+
+        }
+        .footer-logos{
+
+            width: 150px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .footer-logos img{
+            width: 100%;
+        }
+        .footer-logos-icons{
+            display: flex;
+            flex-direction: row;
+            gap:10px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .footer-icon{
+            width: 30px;
+        }
+        .footer-buttom{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #ccc;
+            font-weight: 300;
+            border-top: 1px solid #ccc;
+            width: 96%;
+        }
+        .footer-infos{
+
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            line-height: 1.5;
+        }
+        .footer-info-title{
+            color: #fff;
+            padding: 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: -12px;
+            
+        }
+        .footer-info-text-1st{
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+        }
+        .footer-info-text{
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        .footer-info-text a{
+            color: #ccc;
+        }
+        .footer-info-text a:hover{
+            color: #97E44A;
+            text-decoration: none;
+        }
+    </style>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo/GreenDivLogo.svg" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul class="main-ul">
+                <li class="main-li li-a"><a href="goods.html">植物</a></li>
+                <li class="main-li li-b"><a href="">盆器與配件</a></li>
+                <li class="main-li li-c"><a href="">護理指南</a></li>
+                <li class="main-li li-d"><a href="server.html">服務</a></li>
+                <li class="main-li main-about-li li-e">
+                    <a href="about.html">關於</a>
+                    <ul class="about-ul">
+                        <li class="about-li"><a href="about.html">關於我們</a></li>
+                        <li class="about-li"><a href="contact.html">聯絡我們</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="icons">
+                <div class="icon-item"><a href=""><img src="images/icons/serch.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/SquirrelSetup.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/shop.svg" alt=""></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="banner-container">
+        <div class="banner-box">
+            <div class="banner-box-title"><h3>綠化願景：我們的故事與承諾</h3></div>
+            <div class="banner-box-text"><p>　　我們致力於為熱愛植物的朋友們，提供精選的真實植物、花盆、園藝工具與配件，並分享專業的園藝知識。我們的目標是將戶外的自然景觀巧妙地融合到室內空間，注入自然親和的設計理念。透過不斷的探索與創新，我們期望提升人們對於透過室內植物綠化來增進舒適度與健康的瞭解與實踐。</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="who-container">
+        <div class="who-textbox">
+            <div class="who-textbox-title">我們是誰</div>
+            <div class="who-textbox-line"></div>
+            <div class="who-textbox-text"><p>　　2008年，&lt;Green div&gt; 創始人葉馬龍先生以植物革新生活為使命，融合創新科技與對綠色環境的熱愛，致力於提升人們的居住和工作品質。領導著一個熱情洋溢的團隊，葉馬龍專注於營造健康、和諧的空間，相信照顧植物能夠豐富我們的生活，並為實現更加美好世界的願景而努力。</p></div>
+        </div>
+        <div class="who-imagebox">
+            <img src="images/other/malone.png" alt="">
+        </div>
+    </div>
+    <div class="who-container">
+        <div class="who-imagebox">
+            <img src="images/other/retail.webp" alt="">
+        </div>
+        <div class="who-textbox">
+            <div class="who-textbox-title">為什麼這麼做</div>
+            <div class="who-textbox-line"></div>
+            <div class="who-textbox-text"><p>　　目睹了室內植物市場的快速發展，市場上充斥著一次性消費的觀念和誤導訊息，我們希望能提升人們對植物生態與生命的尊重、了解。因此創立了&lt;Green div&gt;。<br>
+            　　通過照料植物，我們不只是妝點環境，更在培養與自然和諧相處的能力。我們的團隊相信，深入理解植物的生長機制將激勵人們作出更環保的選擇。<br>
+            　　這是&lt;Green div&gt; 的核心理念，也是推動我們每天進步的信念。</p></div>
+        </div>
+    </div>
+    <div class="leaves-container">
+        <div class="row leaves-row">
+            <div class="col-12 leaves-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="76" viewBox="0 0 47 76" class="leaf1">
+                    <path d="M1.46647 35.9603C0.519416 33.5652 -0.190875 29.9725 0.0458883 27.0984C3.59745 26.6195 21.3545 26.6194 23.9589 26.6194C26.5633 26.6194 40.0588 26.1404 46.2147 26.6194C46.6882 28.5355 45.9779 30.4516 45.7412 32.8466C45.5044 35.2417 43.8471 38.8344 42.6632 41.948C41.4794 45.0616 37.2177 48.4147 36.0339 49.3727C34.85 50.3308 32.9559 51.5283 27.0368 52.2468C21.1177 52.9654 14.0542 52.9558 8.56927 47.9357C3.59724 43.385 2.41353 38.3553 1.46647 35.9603Z" fill="#E9E9E9"/>
+                    <path d="M1.65389 8.7181C0.969556 6.49801 0 3.76535 0 1.87858C2.44141 1.43548 7.77393 1.46121 13.7037 1.17104C20.3988 0.843429 27.7903 0.227661 31.4239 0.227661H46.0727C46.2302 1.17104 46.498 3.38799 46.309 4.70873C46.0727 6.35965 45.8364 8.24641 45.6002 9.89733C45.3639 11.5483 43.9463 15.5576 42.2924 17.6802C40.6385 19.8028 38.5121 21.6896 35.4405 23.5764C32.369 25.4631 27.1711 26.4065 24.0996 26.4065C21.0281 26.4065 15.1213 25.2273 12.0498 23.5764C9.68708 21.6896 7.79692 20.2745 5.90676 17.6802C4.01659 15.0859 2.59897 11.7841 1.65389 8.7181Z" fill="#E9E9E9"/>
+                    <path d="M43.4859 65.8351C45.6356 61.3397 46.7105 58.0272 46.2805 52.5854L27.1483 52.5854L0.062174 52.5854C-0.582736 59.4468 3.93162 65.8351 6.94119 68.2011C9.95075 70.5671 13.1753 74.5894 20.2693 75.7724C25.8585 75.7724 30.5878 75.2992 34.4572 73.8796C38.3267 72.4599 41.3362 70.3305 43.4859 65.8351Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="78" height="92" viewBox="0 0 78 92" class="leaf2">
+                    <path d="M28.5536 14.7481C28.0252 13.3435 26.7924 10.8855 27.673 6.49618C29.2581 6.37913 32.8863 6.00458 34.718 5.44275C37.0076 4.74046 38.5927 2.63359 39.4733 0C39.4733 1.05344 40.7062 3.16031 42.1152 4.03817C43.5241 4.91603 48.6317 5.61832 51.4497 6.84733C50.7452 9.30534 49.1601 12.1145 48.1033 14.5725C47.0466 17.0305 43.5241 20.8931 43.7003 25.2824C46.166 24.7557 47.7511 23.1756 49.1601 20.8931C50.5691 18.6107 52.5064 12.8168 53.0348 7.19847C53.8802 7.47939 57.4966 9.1883 59.1991 10.0076L57.7901 16.5038C57.7901 17.5573 56.9095 19.8397 55.6766 22.2977C54.4438 24.7557 48.8078 31.7786 45.4615 35.1145C45.2854 35.8168 46.166 35.9924 47.2227 35.9924C48.2795 35.9924 52.1542 32.8321 53.387 31.4275C54.6199 30.0229 57.7901 25.9847 58.8468 24.9313C59.9036 23.8779 61.8409 19.8397 62.1932 12.1145C64.3067 13.3786 68.3575 18.8448 70.1187 21.4198C68.0639 24.8728 63.8135 31.9893 63.2499 32.8321C62.5454 33.8855 60.4319 35.4656 57.9662 36.6947C55.5005 37.9237 48.1033 39.6794 47.3988 41.6107C50.2168 42.4885 61.8409 37.9237 64.4828 35.9924C67.1246 34.0611 72.2322 28.7939 73.6412 25.8092C73.9934 27.0382 75.2263 28.9695 75.9308 31.0763C76.6353 33.1832 77.8681 35.1145 77.1636 40.7328C72.5844 43.8931 68.7097 45.1221 66.244 45.6489C63.7783 46.1756 52.1542 47.4046 47.3988 46.8779C46.6356 47.1705 45.4263 48.0015 46.6944 48.9847C48.2795 49.1603 64.1305 48.2824 68.0052 47.7557C71.8799 47.229 73.1128 45.1221 76.4591 44.771C76.4591 46.1756 74.1695 54.2519 73.9934 56.0076C73.8525 57.4122 72.5257 60.2214 71.8799 61.4504C68.8859 62.0356 61.8409 63.1008 57.614 62.6794C53.387 62.258 46.8118 59.8117 44.0525 58.6412C43.9938 59.3435 44.123 60.8885 45.1092 61.4504C46.3421 62.1527 55.6766 65.1374 57.614 65.313C59.5513 65.4885 65.5395 66.1908 69.7665 65.6641C69.2029 66.6473 64.7176 74.8524 62.5454 78.8321C61.43 79.7099 58.3185 81.5008 54.796 81.6412C50.3929 81.8168 44.757 81.6412 41.7629 80.0611C38.8145 78.505 38.2571 76.949 35.718 69.8601L35.5986 69.5267C36.0683 73.0382 37.078 80.7282 37.3598 83.3969C37.6416 86.0656 37.4772 90.2443 37.3598 92L33.6612 91.4733C34.0135 89.3664 33.6612 72.687 33.6612 69C33.0977 70.545 30.3736 77.0178 29.082 80.0611C27.2621 80.3537 23.27 80.9389 21.861 80.9389C20.0998 80.9389 16.0489 80.2366 12.5265 78.8321C11.2936 77.9542 8.47565 75.8473 6.89055 73.916C5.83381 72.1603 4.42482 70.7557 4.42482 67.2443C5.65768 67.9466 9.00402 67.771 10.413 67.2443C11.822 66.7176 14.4638 65.4885 15.5206 64.6107C16.5773 63.7328 20.0998 62.1527 21.6849 61.8015C22.953 61.5206 24.2093 60.8651 24.679 60.5725C24.1506 60.3384 22.8825 59.8351 22.0371 59.6947C20.9804 59.5191 17.4579 60.9237 15.8728 61.8015C14.2877 62.6794 9.53239 64.6107 7.59504 64.9618C6.04515 65.2427 4.01387 64.3766 3.19196 63.9084C3.07455 63.0305 2.73404 60.8885 2.31135 59.3435C1.88865 57.7985 0.96107 53.4326 0.550116 51.4427C1.31332 51.9695 3.36808 53.1282 5.48156 53.5496C7.77116 53.7252 16.4012 51.2672 19.7475 50.916C23.0939 50.5649 25.3835 51.7939 27.1447 51.2672C27.1447 50.5649 24.5028 48.9847 21.6849 48.458C18.8669 47.9313 10.0608 50.0382 7.94728 50.3893C5.83381 50.7405 2.83972 50.5649 0.373993 47.9313C0.514891 46.1053 1.37202 38.9771 1.78298 35.6412C2.31135 36.2265 3.61464 37.5023 4.60085 37.9237C7.06648 37.9237 12.3503 37.3969 16.7534 37.3969C21.1566 37.3969 25.5596 38.9771 26.2641 38.9771C26.7924 37.7481 21.8609 35.4656 18.6907 34.9389C15.5205 34.4122 9.88454 35.2901 4.95319 34.5878C4.1078 34.3069 2.95707 33.0662 2.48738 32.4809C2.36996 29.2621 2.62827 22.1924 4.60085 19.6641C4.9531 21.2443 8.47556 23.7023 9.88454 24.7557C11.2935 25.8092 17.1056 26.1603 18.6907 26.1603C20.2758 26.1603 24.1505 27.3893 26.7924 30.1985C26.6162 28.0916 25.0311 26.687 23.2699 25.458C21.5087 24.229 13.407 22.6489 12.3503 22.2977C11.2935 21.9466 9.70842 19.6641 8.8278 15.626C10.0607 14.2214 14.816 11.0611 16.225 9.83206C17.634 8.60305 20.4519 6.49618 22.2132 7.19847C21.8609 7.84224 21.2973 9.90229 21.8609 12.9924C22.5654 16.855 25.7356 17.9084 27.4969 19.4885C28.9059 20.7527 29.9626 23.5267 30.3148 24.7557H31.1955C31.3716 23.8779 30.8432 21.2443 30.6671 19.6641C30.491 18.084 29.6103 17.0305 28.5536 14.7481Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="88" viewBox="0 0 68 88" class="leaf3">
+                    <path d="M16.8433 30.2034L28.4466 20.8814V30.2034L26.2008 30.5763L1.12263 51.8305H16.8433L28.8209 42.1356L28.0723 51.8305L25.8265 52.9492L0.374023 73.8305H14.9718L26.5751 64.1356H28.0723L27.3237 87.2542L42.2958 88L41.9215 65.6271L52.402 76.0678C54.498 76.6644 61.7595 76.8136 65.1282 76.8136L43.0444 53.6949L41.5472 52.9492V42.1356C42.4455 43.6271 49.158 50.9605 52.402 54.4407H66.2511C63.2567 51.1593 50.5304 37.9096 44.5416 31.6949H41.5472L42.2958 19.7627L53.8992 32.4407H67.374C61.9841 25.878 45.1655 8.0791 37.4299 0L25.4522 10.4407L1.87123 29.0847L16.8433 30.2034Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="58" height="60" viewBox="0 0 58 60" class="leaf4">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.739365 19.8265C4.76146 12.9653 6.6542 11.3091 8.54695 9.65297C10.4397 7.99681 18.4839 3.50154 22.2694 2.31857C26.0549 1.1356 29.6038 0.662415 31.9697 0.662415C33.8625 0.662415 37.8057 1.45106 39.5407 1.84538C41.3546 2.63403 45.4082 4.54255 47.1117 5.86747C49.241 7.52363 55.1559 16.041 56.1022 18.6435C57.0486 21.246 58.4682 31.6562 57.0486 39.2272C53.5103 45.8614 52.6592 46.9148 51.7903 47.9901C51.7296 48.0652 51.6688 48.1404 51.607 48.2177C50.6606 49.4007 46.4019 54.1325 45.2189 54.6057C44.036 55.0789 30.3136 59.3376 28.4208 59.3376C23.6889 58.1546 13.2788 53.6594 10.6763 51.53C6.8908 47.7445 2.39552 39.2272 1.44915 35.6783C-0.0650527 30.1893 0.345043 22.8233 0.739365 19.8265ZM13.9938 24.6192C16.23 18.856 19.8079 14.8662 24.7276 14.4228C29.6473 13.9795 37.2504 17.5261 39.9339 19.2993C43.0646 23.2893 44.4064 26.3926 44.8536 31.2691C43.9591 37.0322 39.0394 45.012 33.6725 45.4553C28.3056 45.8986 27.4111 45.4553 24.2804 43.682C21.1497 41.9087 15.5955 36.4751 14.8882 34.3723C13.9936 31.7124 13.0993 27.7223 13.9938 24.6192Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="78" height="92" viewBox="0 0 78 92" class="leaf2">
+                    <path d="M28.5536 14.7481C28.0252 13.3435 26.7924 10.8855 27.673 6.49618C29.2581 6.37913 32.8863 6.00458 34.718 5.44275C37.0076 4.74046 38.5927 2.63359 39.4733 0C39.4733 1.05344 40.7062 3.16031 42.1152 4.03817C43.5241 4.91603 48.6317 5.61832 51.4497 6.84733C50.7452 9.30534 49.1601 12.1145 48.1033 14.5725C47.0466 17.0305 43.5241 20.8931 43.7003 25.2824C46.166 24.7557 47.7511 23.1756 49.1601 20.8931C50.5691 18.6107 52.5064 12.8168 53.0348 7.19847C53.8802 7.47939 57.4966 9.1883 59.1991 10.0076L57.7901 16.5038C57.7901 17.5573 56.9095 19.8397 55.6766 22.2977C54.4438 24.7557 48.8078 31.7786 45.4615 35.1145C45.2854 35.8168 46.166 35.9924 47.2227 35.9924C48.2795 35.9924 52.1542 32.8321 53.387 31.4275C54.6199 30.0229 57.7901 25.9847 58.8468 24.9313C59.9036 23.8779 61.8409 19.8397 62.1932 12.1145C64.3067 13.3786 68.3575 18.8448 70.1187 21.4198C68.0639 24.8728 63.8135 31.9893 63.2499 32.8321C62.5454 33.8855 60.4319 35.4656 57.9662 36.6947C55.5005 37.9237 48.1033 39.6794 47.3988 41.6107C50.2168 42.4885 61.8409 37.9237 64.4828 35.9924C67.1246 34.0611 72.2322 28.7939 73.6412 25.8092C73.9934 27.0382 75.2263 28.9695 75.9308 31.0763C76.6353 33.1832 77.8681 35.1145 77.1636 40.7328C72.5844 43.8931 68.7097 45.1221 66.244 45.6489C63.7783 46.1756 52.1542 47.4046 47.3988 46.8779C46.6356 47.1705 45.4263 48.0015 46.6944 48.9847C48.2795 49.1603 64.1305 48.2824 68.0052 47.7557C71.8799 47.229 73.1128 45.1221 76.4591 44.771C76.4591 46.1756 74.1695 54.2519 73.9934 56.0076C73.8525 57.4122 72.5257 60.2214 71.8799 61.4504C68.8859 62.0356 61.8409 63.1008 57.614 62.6794C53.387 62.258 46.8118 59.8117 44.0525 58.6412C43.9938 59.3435 44.123 60.8885 45.1092 61.4504C46.3421 62.1527 55.6766 65.1374 57.614 65.313C59.5513 65.4885 65.5395 66.1908 69.7665 65.6641C69.2029 66.6473 64.7176 74.8524 62.5454 78.8321C61.43 79.7099 58.3185 81.5008 54.796 81.6412C50.3929 81.8168 44.757 81.6412 41.7629 80.0611C38.8145 78.505 38.2571 76.949 35.718 69.8601L35.5986 69.5267C36.0683 73.0382 37.078 80.7282 37.3598 83.3969C37.6416 86.0656 37.4772 90.2443 37.3598 92L33.6612 91.4733C34.0135 89.3664 33.6612 72.687 33.6612 69C33.0977 70.545 30.3736 77.0178 29.082 80.0611C27.2621 80.3537 23.27 80.9389 21.861 80.9389C20.0998 80.9389 16.0489 80.2366 12.5265 78.8321C11.2936 77.9542 8.47565 75.8473 6.89055 73.916C5.83381 72.1603 4.42482 70.7557 4.42482 67.2443C5.65768 67.9466 9.00402 67.771 10.413 67.2443C11.822 66.7176 14.4638 65.4885 15.5206 64.6107C16.5773 63.7328 20.0998 62.1527 21.6849 61.8015C22.953 61.5206 24.2093 60.8651 24.679 60.5725C24.1506 60.3384 22.8825 59.8351 22.0371 59.6947C20.9804 59.5191 17.4579 60.9237 15.8728 61.8015C14.2877 62.6794 9.53239 64.6107 7.59504 64.9618C6.04515 65.2427 4.01387 64.3766 3.19196 63.9084C3.07455 63.0305 2.73404 60.8885 2.31135 59.3435C1.88865 57.7985 0.96107 53.4326 0.550116 51.4427C1.31332 51.9695 3.36808 53.1282 5.48156 53.5496C7.77116 53.7252 16.4012 51.2672 19.7475 50.916C23.0939 50.5649 25.3835 51.7939 27.1447 51.2672C27.1447 50.5649 24.5028 48.9847 21.6849 48.458C18.8669 47.9313 10.0608 50.0382 7.94728 50.3893C5.83381 50.7405 2.83972 50.5649 0.373993 47.9313C0.514891 46.1053 1.37202 38.9771 1.78298 35.6412C2.31135 36.2265 3.61464 37.5023 4.60085 37.9237C7.06648 37.9237 12.3503 37.3969 16.7534 37.3969C21.1566 37.3969 25.5596 38.9771 26.2641 38.9771C26.7924 37.7481 21.8609 35.4656 18.6907 34.9389C15.5205 34.4122 9.88454 35.2901 4.95319 34.5878C4.1078 34.3069 2.95707 33.0662 2.48738 32.4809C2.36996 29.2621 2.62827 22.1924 4.60085 19.6641C4.9531 21.2443 8.47556 23.7023 9.88454 24.7557C11.2935 25.8092 17.1056 26.1603 18.6907 26.1603C20.2758 26.1603 24.1505 27.3893 26.7924 30.1985C26.6162 28.0916 25.0311 26.687 23.2699 25.458C21.5087 24.229 13.407 22.6489 12.3503 22.2977C11.2935 21.9466 9.70842 19.6641 8.8278 15.626C10.0607 14.2214 14.816 11.0611 16.225 9.83206C17.634 8.60305 20.4519 6.49618 22.2132 7.19847C21.8609 7.84224 21.2973 9.90229 21.8609 12.9924C22.5654 16.855 25.7356 17.9084 27.4969 19.4885C28.9059 20.7527 29.9626 23.5267 30.3148 24.7557H31.1955C31.3716 23.8779 30.8432 21.2443 30.6671 19.6641C30.491 18.084 29.6103 17.0305 28.5536 14.7481Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="37" height="78" viewBox="0 0 37 78" fill="E9E9E9" class="leaf5">
+                    <path d="M10.2041 10.4981C11.2321 8.76489 15.0223 5.24298 18.6551 0.456548C19.5868 1.94568 25.9296 6.93437 28.283 9.85163C30.6364 12.7689 33.1472 16.9507 34.2671 21.9478C35.387 26.9449 37.3557 42.7515 35.3414 50.5467C34.5301 54.0187 31.4092 62.9148 24.9005 76.5669C20.7982 76.9173 12.0997 77.6475 10.1243 77.7652C8.05444 73.796 3.37674 63.9342 1.22449 56.2405C0.386686 47.5164 -0.44887 42.8049 1.60248 31.3131C2.78565 26.8318 5.0274 22.8607 5.46697 20.3981L4.24218 20.5507C4.65684 19.0865 8.3896 13.2389 10.2041 10.4981Z" fill="#E9E9E9"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="greyline"></div>
+    <div class="eco-container">
+        <div class="eco-imagebox"></div>
+        <div class="eco-textbox">
+            <div class="eco-textbox-title">永續發展的使命</div>
+            <div class="eco-textbox-text"><p>我們對地球的承諾：<br>
+                由內而外的環保實踐</p></div>
+        </div>
+    </div>
+    <div class="ecoth-container">
+        <div class="ecoth-col ecoth-col-left">
+            <div class="ecoth-card">
+                <div class="ecoth-card-title">環保盆栽材質</div>
+                <div class="ecoth-card-image"><img src="images/other/ecoth-1.jpg" alt=""></div>
+                <div class="ecoth-card-text">　　在我們的產品中，我們選擇使用可持續材料製成的盆栽。我們的盆栽多採用生物降解材質或再生塑膠，這些材料在使用壽命結束後可以較容易地回歸自然，或者再次回收利用。通過這種方式，我們減少了對環境的負擔，也鼓勵顧客選擇這樣的環保產品。</div>
+            </div>
+            <div class="ecoth-card">
+                <div class="ecoth-card-title">綠色物流</div>
+                <div class="ecoth-card-image"><img src="images/other/ecoth-2.jpg" alt=""></div>
+                <div class="ecoth-card-text">　　&lt;Green div&gt; 響應生態物流，於桃園市推行綠色策略，設立低碳轉運站與智慧物流系統，減少高峰時段配送壓力。利用電動運具及再生能源，結合可分解包材與回收政策，致力於降低碳足跡，實現環保與效率的雙贏。</div>
+            </div>
+        </div>
+        <div class="ecoth-line"></div>
+        <div class="ecoth-col ecoth-col-right">
+            <div class="ecoth-card">
+                <div class="ecoth-card-title">水資源管理</div>
+                <div class="ecoth-card-image"><img src="images/other/ecoth-3.jpg" alt=""></div>
+                <div class="ecoth-card-text">　　在植物灌溉方面，我們實施了創新的水資源管理策略，利用雨水收集系統以及滴灌技術，以最大程度地減少水資源的浪費。這樣做不僅有助於節約用水，同時也保證了植物獲得充足且恰到好處的滋潤。</div>
+            </div>
+            <div class="ecoth-card">
+                <div class="ecoth-card-title">教育與社區參與</div>
+                <div class="ecoth-card-image"><img src="images/other/ecoth-4.jpg" alt=""></div>
+                <div class="ecoth-card-text">　　除了商業實踐，我們還致力於教育工作，通過工作坊和講座，讓顧客了解環保植栽的重要性，以及他們可以如何在自己的家庭和工作場所實施綠色生活。我們相信，通過普及知識和分享我們的經驗，我們能夠激勵更多人加入我們的環保行列。</div>
+            </div>
+        </div>
+    </div>
+    <div class="comment-container">
+        <div class="comment-card">
+            <div class="comment-card-col">
+                <div class="comment-card-text"><p>　　這些實踐體現了我們對地球的承諾，從一個盆栽開始，到鄰里間的綠化行動，再到地球生態系統的影響。<br>
+                    　　&lt;Green div&gt; 致力於在每一步中做出正確而負責任的選擇。望我們一同為地球締造更綠色、更持久的未來。</p>
+                </div>
+                <div class="comment-card-gndv"><img src="images/logo/GreenDivLogo-09.svg" alt=""></div>
+            </div>
+        <div class="comment-card-logo"><img src="images/logo/GreenDivLogo-08.svg" alt=""></div>
+        </div>
+    </div>
+    <div class="button-container">
+        <div class="button-col">
+            <div class="server-buttom">
+                <a href=""><p>與我們聯絡</p></a>
+            </div>
+        </div>
+        <div class="button-col">
+            <div class="server-buttom">
+                <a href=""><p>我們的服務</p></a>
+            </div>
+        </div>
+    </div>
+    <div class="leaves-container">
+        <div class="row leaves-row">
+            <div class="col-12 leaves-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="76" viewBox="0 0 47 76" class="leaf1">
+                    <path d="M1.46647 35.9603C0.519416 33.5652 -0.190875 29.9725 0.0458883 27.0984C3.59745 26.6195 21.3545 26.6194 23.9589 26.6194C26.5633 26.6194 40.0588 26.1404 46.2147 26.6194C46.6882 28.5355 45.9779 30.4516 45.7412 32.8466C45.5044 35.2417 43.8471 38.8344 42.6632 41.948C41.4794 45.0616 37.2177 48.4147 36.0339 49.3727C34.85 50.3308 32.9559 51.5283 27.0368 52.2468C21.1177 52.9654 14.0542 52.9558 8.56927 47.9357C3.59724 43.385 2.41353 38.3553 1.46647 35.9603Z" fill="#E9E9E9"/>
+                    <path d="M1.65389 8.7181C0.969556 6.49801 0 3.76535 0 1.87858C2.44141 1.43548 7.77393 1.46121 13.7037 1.17104C20.3988 0.843429 27.7903 0.227661 31.4239 0.227661H46.0727C46.2302 1.17104 46.498 3.38799 46.309 4.70873C46.0727 6.35965 45.8364 8.24641 45.6002 9.89733C45.3639 11.5483 43.9463 15.5576 42.2924 17.6802C40.6385 19.8028 38.5121 21.6896 35.4405 23.5764C32.369 25.4631 27.1711 26.4065 24.0996 26.4065C21.0281 26.4065 15.1213 25.2273 12.0498 23.5764C9.68708 21.6896 7.79692 20.2745 5.90676 17.6802C4.01659 15.0859 2.59897 11.7841 1.65389 8.7181Z" fill="#E9E9E9"/>
+                    <path d="M43.4859 65.8351C45.6356 61.3397 46.7105 58.0272 46.2805 52.5854L27.1483 52.5854L0.062174 52.5854C-0.582736 59.4468 3.93162 65.8351 6.94119 68.2011C9.95075 70.5671 13.1753 74.5894 20.2693 75.7724C25.8585 75.7724 30.5878 75.2992 34.4572 73.8796C38.3267 72.4599 41.3362 70.3305 43.4859 65.8351Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="78" height="92" viewBox="0 0 78 92" class="leaf2">
+                    <path d="M28.5536 14.7481C28.0252 13.3435 26.7924 10.8855 27.673 6.49618C29.2581 6.37913 32.8863 6.00458 34.718 5.44275C37.0076 4.74046 38.5927 2.63359 39.4733 0C39.4733 1.05344 40.7062 3.16031 42.1152 4.03817C43.5241 4.91603 48.6317 5.61832 51.4497 6.84733C50.7452 9.30534 49.1601 12.1145 48.1033 14.5725C47.0466 17.0305 43.5241 20.8931 43.7003 25.2824C46.166 24.7557 47.7511 23.1756 49.1601 20.8931C50.5691 18.6107 52.5064 12.8168 53.0348 7.19847C53.8802 7.47939 57.4966 9.1883 59.1991 10.0076L57.7901 16.5038C57.7901 17.5573 56.9095 19.8397 55.6766 22.2977C54.4438 24.7557 48.8078 31.7786 45.4615 35.1145C45.2854 35.8168 46.166 35.9924 47.2227 35.9924C48.2795 35.9924 52.1542 32.8321 53.387 31.4275C54.6199 30.0229 57.7901 25.9847 58.8468 24.9313C59.9036 23.8779 61.8409 19.8397 62.1932 12.1145C64.3067 13.3786 68.3575 18.8448 70.1187 21.4198C68.0639 24.8728 63.8135 31.9893 63.2499 32.8321C62.5454 33.8855 60.4319 35.4656 57.9662 36.6947C55.5005 37.9237 48.1033 39.6794 47.3988 41.6107C50.2168 42.4885 61.8409 37.9237 64.4828 35.9924C67.1246 34.0611 72.2322 28.7939 73.6412 25.8092C73.9934 27.0382 75.2263 28.9695 75.9308 31.0763C76.6353 33.1832 77.8681 35.1145 77.1636 40.7328C72.5844 43.8931 68.7097 45.1221 66.244 45.6489C63.7783 46.1756 52.1542 47.4046 47.3988 46.8779C46.6356 47.1705 45.4263 48.0015 46.6944 48.9847C48.2795 49.1603 64.1305 48.2824 68.0052 47.7557C71.8799 47.229 73.1128 45.1221 76.4591 44.771C76.4591 46.1756 74.1695 54.2519 73.9934 56.0076C73.8525 57.4122 72.5257 60.2214 71.8799 61.4504C68.8859 62.0356 61.8409 63.1008 57.614 62.6794C53.387 62.258 46.8118 59.8117 44.0525 58.6412C43.9938 59.3435 44.123 60.8885 45.1092 61.4504C46.3421 62.1527 55.6766 65.1374 57.614 65.313C59.5513 65.4885 65.5395 66.1908 69.7665 65.6641C69.2029 66.6473 64.7176 74.8524 62.5454 78.8321C61.43 79.7099 58.3185 81.5008 54.796 81.6412C50.3929 81.8168 44.757 81.6412 41.7629 80.0611C38.8145 78.505 38.2571 76.949 35.718 69.8601L35.5986 69.5267C36.0683 73.0382 37.078 80.7282 37.3598 83.3969C37.6416 86.0656 37.4772 90.2443 37.3598 92L33.6612 91.4733C34.0135 89.3664 33.6612 72.687 33.6612 69C33.0977 70.545 30.3736 77.0178 29.082 80.0611C27.2621 80.3537 23.27 80.9389 21.861 80.9389C20.0998 80.9389 16.0489 80.2366 12.5265 78.8321C11.2936 77.9542 8.47565 75.8473 6.89055 73.916C5.83381 72.1603 4.42482 70.7557 4.42482 67.2443C5.65768 67.9466 9.00402 67.771 10.413 67.2443C11.822 66.7176 14.4638 65.4885 15.5206 64.6107C16.5773 63.7328 20.0998 62.1527 21.6849 61.8015C22.953 61.5206 24.2093 60.8651 24.679 60.5725C24.1506 60.3384 22.8825 59.8351 22.0371 59.6947C20.9804 59.5191 17.4579 60.9237 15.8728 61.8015C14.2877 62.6794 9.53239 64.6107 7.59504 64.9618C6.04515 65.2427 4.01387 64.3766 3.19196 63.9084C3.07455 63.0305 2.73404 60.8885 2.31135 59.3435C1.88865 57.7985 0.96107 53.4326 0.550116 51.4427C1.31332 51.9695 3.36808 53.1282 5.48156 53.5496C7.77116 53.7252 16.4012 51.2672 19.7475 50.916C23.0939 50.5649 25.3835 51.7939 27.1447 51.2672C27.1447 50.5649 24.5028 48.9847 21.6849 48.458C18.8669 47.9313 10.0608 50.0382 7.94728 50.3893C5.83381 50.7405 2.83972 50.5649 0.373993 47.9313C0.514891 46.1053 1.37202 38.9771 1.78298 35.6412C2.31135 36.2265 3.61464 37.5023 4.60085 37.9237C7.06648 37.9237 12.3503 37.3969 16.7534 37.3969C21.1566 37.3969 25.5596 38.9771 26.2641 38.9771C26.7924 37.7481 21.8609 35.4656 18.6907 34.9389C15.5205 34.4122 9.88454 35.2901 4.95319 34.5878C4.1078 34.3069 2.95707 33.0662 2.48738 32.4809C2.36996 29.2621 2.62827 22.1924 4.60085 19.6641C4.9531 21.2443 8.47556 23.7023 9.88454 24.7557C11.2935 25.8092 17.1056 26.1603 18.6907 26.1603C20.2758 26.1603 24.1505 27.3893 26.7924 30.1985C26.6162 28.0916 25.0311 26.687 23.2699 25.458C21.5087 24.229 13.407 22.6489 12.3503 22.2977C11.2935 21.9466 9.70842 19.6641 8.8278 15.626C10.0607 14.2214 14.816 11.0611 16.225 9.83206C17.634 8.60305 20.4519 6.49618 22.2132 7.19847C21.8609 7.84224 21.2973 9.90229 21.8609 12.9924C22.5654 16.855 25.7356 17.9084 27.4969 19.4885C28.9059 20.7527 29.9626 23.5267 30.3148 24.7557H31.1955C31.3716 23.8779 30.8432 21.2443 30.6671 19.6641C30.491 18.084 29.6103 17.0305 28.5536 14.7481Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="68" height="88" viewBox="0 0 68 88" class="leaf3">
+                    <path d="M16.8433 30.2034L28.4466 20.8814V30.2034L26.2008 30.5763L1.12263 51.8305H16.8433L28.8209 42.1356L28.0723 51.8305L25.8265 52.9492L0.374023 73.8305H14.9718L26.5751 64.1356H28.0723L27.3237 87.2542L42.2958 88L41.9215 65.6271L52.402 76.0678C54.498 76.6644 61.7595 76.8136 65.1282 76.8136L43.0444 53.6949L41.5472 52.9492V42.1356C42.4455 43.6271 49.158 50.9605 52.402 54.4407H66.2511C63.2567 51.1593 50.5304 37.9096 44.5416 31.6949H41.5472L42.2958 19.7627L53.8992 32.4407H67.374C61.9841 25.878 45.1655 8.0791 37.4299 0L25.4522 10.4407L1.87123 29.0847L16.8433 30.2034Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="58" height="60" viewBox="0 0 58 60" class="leaf4">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.739365 19.8265C4.76146 12.9653 6.6542 11.3091 8.54695 9.65297C10.4397 7.99681 18.4839 3.50154 22.2694 2.31857C26.0549 1.1356 29.6038 0.662415 31.9697 0.662415C33.8625 0.662415 37.8057 1.45106 39.5407 1.84538C41.3546 2.63403 45.4082 4.54255 47.1117 5.86747C49.241 7.52363 55.1559 16.041 56.1022 18.6435C57.0486 21.246 58.4682 31.6562 57.0486 39.2272C53.5103 45.8614 52.6592 46.9148 51.7903 47.9901C51.7296 48.0652 51.6688 48.1404 51.607 48.2177C50.6606 49.4007 46.4019 54.1325 45.2189 54.6057C44.036 55.0789 30.3136 59.3376 28.4208 59.3376C23.6889 58.1546 13.2788 53.6594 10.6763 51.53C6.8908 47.7445 2.39552 39.2272 1.44915 35.6783C-0.0650527 30.1893 0.345043 22.8233 0.739365 19.8265ZM13.9938 24.6192C16.23 18.856 19.8079 14.8662 24.7276 14.4228C29.6473 13.9795 37.2504 17.5261 39.9339 19.2993C43.0646 23.2893 44.4064 26.3926 44.8536 31.2691C43.9591 37.0322 39.0394 45.012 33.6725 45.4553C28.3056 45.8986 27.4111 45.4553 24.2804 43.682C21.1497 41.9087 15.5955 36.4751 14.8882 34.3723C13.9936 31.7124 13.0993 27.7223 13.9938 24.6192Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="78" height="92" viewBox="0 0 78 92" class="leaf2">
+                    <path d="M28.5536 14.7481C28.0252 13.3435 26.7924 10.8855 27.673 6.49618C29.2581 6.37913 32.8863 6.00458 34.718 5.44275C37.0076 4.74046 38.5927 2.63359 39.4733 0C39.4733 1.05344 40.7062 3.16031 42.1152 4.03817C43.5241 4.91603 48.6317 5.61832 51.4497 6.84733C50.7452 9.30534 49.1601 12.1145 48.1033 14.5725C47.0466 17.0305 43.5241 20.8931 43.7003 25.2824C46.166 24.7557 47.7511 23.1756 49.1601 20.8931C50.5691 18.6107 52.5064 12.8168 53.0348 7.19847C53.8802 7.47939 57.4966 9.1883 59.1991 10.0076L57.7901 16.5038C57.7901 17.5573 56.9095 19.8397 55.6766 22.2977C54.4438 24.7557 48.8078 31.7786 45.4615 35.1145C45.2854 35.8168 46.166 35.9924 47.2227 35.9924C48.2795 35.9924 52.1542 32.8321 53.387 31.4275C54.6199 30.0229 57.7901 25.9847 58.8468 24.9313C59.9036 23.8779 61.8409 19.8397 62.1932 12.1145C64.3067 13.3786 68.3575 18.8448 70.1187 21.4198C68.0639 24.8728 63.8135 31.9893 63.2499 32.8321C62.5454 33.8855 60.4319 35.4656 57.9662 36.6947C55.5005 37.9237 48.1033 39.6794 47.3988 41.6107C50.2168 42.4885 61.8409 37.9237 64.4828 35.9924C67.1246 34.0611 72.2322 28.7939 73.6412 25.8092C73.9934 27.0382 75.2263 28.9695 75.9308 31.0763C76.6353 33.1832 77.8681 35.1145 77.1636 40.7328C72.5844 43.8931 68.7097 45.1221 66.244 45.6489C63.7783 46.1756 52.1542 47.4046 47.3988 46.8779C46.6356 47.1705 45.4263 48.0015 46.6944 48.9847C48.2795 49.1603 64.1305 48.2824 68.0052 47.7557C71.8799 47.229 73.1128 45.1221 76.4591 44.771C76.4591 46.1756 74.1695 54.2519 73.9934 56.0076C73.8525 57.4122 72.5257 60.2214 71.8799 61.4504C68.8859 62.0356 61.8409 63.1008 57.614 62.6794C53.387 62.258 46.8118 59.8117 44.0525 58.6412C43.9938 59.3435 44.123 60.8885 45.1092 61.4504C46.3421 62.1527 55.6766 65.1374 57.614 65.313C59.5513 65.4885 65.5395 66.1908 69.7665 65.6641C69.2029 66.6473 64.7176 74.8524 62.5454 78.8321C61.43 79.7099 58.3185 81.5008 54.796 81.6412C50.3929 81.8168 44.757 81.6412 41.7629 80.0611C38.8145 78.505 38.2571 76.949 35.718 69.8601L35.5986 69.5267C36.0683 73.0382 37.078 80.7282 37.3598 83.3969C37.6416 86.0656 37.4772 90.2443 37.3598 92L33.6612 91.4733C34.0135 89.3664 33.6612 72.687 33.6612 69C33.0977 70.545 30.3736 77.0178 29.082 80.0611C27.2621 80.3537 23.27 80.9389 21.861 80.9389C20.0998 80.9389 16.0489 80.2366 12.5265 78.8321C11.2936 77.9542 8.47565 75.8473 6.89055 73.916C5.83381 72.1603 4.42482 70.7557 4.42482 67.2443C5.65768 67.9466 9.00402 67.771 10.413 67.2443C11.822 66.7176 14.4638 65.4885 15.5206 64.6107C16.5773 63.7328 20.0998 62.1527 21.6849 61.8015C22.953 61.5206 24.2093 60.8651 24.679 60.5725C24.1506 60.3384 22.8825 59.8351 22.0371 59.6947C20.9804 59.5191 17.4579 60.9237 15.8728 61.8015C14.2877 62.6794 9.53239 64.6107 7.59504 64.9618C6.04515 65.2427 4.01387 64.3766 3.19196 63.9084C3.07455 63.0305 2.73404 60.8885 2.31135 59.3435C1.88865 57.7985 0.96107 53.4326 0.550116 51.4427C1.31332 51.9695 3.36808 53.1282 5.48156 53.5496C7.77116 53.7252 16.4012 51.2672 19.7475 50.916C23.0939 50.5649 25.3835 51.7939 27.1447 51.2672C27.1447 50.5649 24.5028 48.9847 21.6849 48.458C18.8669 47.9313 10.0608 50.0382 7.94728 50.3893C5.83381 50.7405 2.83972 50.5649 0.373993 47.9313C0.514891 46.1053 1.37202 38.9771 1.78298 35.6412C2.31135 36.2265 3.61464 37.5023 4.60085 37.9237C7.06648 37.9237 12.3503 37.3969 16.7534 37.3969C21.1566 37.3969 25.5596 38.9771 26.2641 38.9771C26.7924 37.7481 21.8609 35.4656 18.6907 34.9389C15.5205 34.4122 9.88454 35.2901 4.95319 34.5878C4.1078 34.3069 2.95707 33.0662 2.48738 32.4809C2.36996 29.2621 2.62827 22.1924 4.60085 19.6641C4.9531 21.2443 8.47556 23.7023 9.88454 24.7557C11.2935 25.8092 17.1056 26.1603 18.6907 26.1603C20.2758 26.1603 24.1505 27.3893 26.7924 30.1985C26.6162 28.0916 25.0311 26.687 23.2699 25.458C21.5087 24.229 13.407 22.6489 12.3503 22.2977C11.2935 21.9466 9.70842 19.6641 8.8278 15.626C10.0607 14.2214 14.816 11.0611 16.225 9.83206C17.634 8.60305 20.4519 6.49618 22.2132 7.19847C21.8609 7.84224 21.2973 9.90229 21.8609 12.9924C22.5654 16.855 25.7356 17.9084 27.4969 19.4885C28.9059 20.7527 29.9626 23.5267 30.3148 24.7557H31.1955C31.3716 23.8779 30.8432 21.2443 30.6671 19.6641C30.491 18.084 29.6103 17.0305 28.5536 14.7481Z" fill="#E9E9E9"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="37" height="78" viewBox="0 0 37 78" fill="E9E9E9" class="leaf5">
+                    <path d="M10.2041 10.4981C11.2321 8.76489 15.0223 5.24298 18.6551 0.456548C19.5868 1.94568 25.9296 6.93437 28.283 9.85163C30.6364 12.7689 33.1472 16.9507 34.2671 21.9478C35.387 26.9449 37.3557 42.7515 35.3414 50.5467C34.5301 54.0187 31.4092 62.9148 24.9005 76.5669C20.7982 76.9173 12.0997 77.6475 10.1243 77.7652C8.05444 73.796 3.37674 63.9342 1.22449 56.2405C0.386686 47.5164 -0.44887 42.8049 1.60248 31.3131C2.78565 26.8318 5.0274 22.8607 5.46697 20.3981L4.24218 20.5507C4.65684 19.0865 8.3896 13.2389 10.2041 10.4981Z" fill="#E9E9E9"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container-container">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-infos">
+                    <div class="footer-info-1st">
+                        <div class="footer-info-title footer-info-1st-title">綠化無限</div>
+                        <div class="footer-info-text-1st">
+                            <div class="footer-info-text"><a href="">隱私政策</a></div>
+                            <div class="footer-info-text"><a href="">服務條款</a></div>
+                            <div class="footer-info-text"><a href="">門市資訊</a></div>
+                            <div class="footer-info-text"><a href="">會員權益</a></div>
+                            <div class="footer-info-text"><a href="">加入我們</a></div>
+                        </div>
+                    </div>
+                    <div class="footer-info-2nd">
+                        <div class="footer-info-title footer-info-2nd">聯絡資訊</div>
+                            <div class="footer-info-text-2nd">
+                            <div class="footer-info-text footer-info-text-2nd">客服專線：03 - 2560883</div>
+                            <div class="footer-info-text footer-info-text-2nd">客服時間：週二至週六 9:00-15:00</div>
+                            <div class="footer-info-text footer-info-text-2nd">信箱：<a href="">service.taiwan@green.div.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-logos">
+                    <div class="footer-logos-logo"><img src="images/logo/GreenDivLogo-07.svg"></div>
+                    <div class="footer-logos-icons">
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Facebook_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Instagram_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _YouTube_.svg"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-buttom">
+            <p>Copyright © 台灣昆迪芙股份有限公司 All Rights Reserved. 本網站為緯育TibaMe前端工程師班第80期學員專題作品，本平台僅供學習、展示之用。</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

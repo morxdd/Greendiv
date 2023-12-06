@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務 | 綠域植栽</title>
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/logo/logo_ico.svg" type="image/x-icon">
+    <style>
+        body{
+            font-family: 'Noto Sans TC', sans-serif;
+
+        }
+        ::selection {
+            background: rgba(151, 228, 74, 0.5); /* 黄绿色背景，50% 不透明度 */
+        }
+        ::-moz-selection {
+            background: rgba(151, 228, 74, 0.5); 
+        }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 60px;
+            background-color: #fff;
+            max-width: 1520px;
+            margin: auto;
+        }
+        .logo{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .logo img{
+            width: 120px;
+        }
+        nav {
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
+        nav .main-ul{
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        nav .main-ul a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 400;         
+        }
+
+        nav .main-ul a:hover{
+            transition: none;
+            font-weight: 700;
+        }
+        nav .li-d a{
+            font-weight: 700;
+        }
+        .about-ul{
+            position: absolute; 
+            width: 180px;
+            height: 100px;
+            
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            left: 50%;
+            transform: translate(-50%, 0);
+            border-radius: 20px;
+            display: none;
+            gap: 8px;
+            background-color: #fff6;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #ccc;
+            z-index: 1;
+            box-shadow: 0 4px 10px #0002;
+        }
+        .about-ul a{
+            height: 20px;
+            width: 120px;
+        }
+        .main-about-li{
+            position: relative;
+        }
+        .main-about-li:hover .about-ul {
+            display: flex;
+        }
+        .main-about-li:hover .about-ul a {
+            height: 10px;
+            font-weight: 300;
+        }
+        .about-ul a:hover {
+            font-weight: 700 !important;
+        }
+        nav .icons{
+            display: flex;
+            flex-direction: row;    
+            gap: 30px;
+            margin-left: 20px;
+            margin-right: 20px;        
+        }
+        .icon-item{
+            width: 40px;
+        }
+        .icon-item a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            background-color: #fff;
+            /* width: 100px; */
+            /* height: 20px; */
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        .icon-item a:hover{
+            /* color: #655D5D; */
+            color: #0E677B;
+            background-color: #f5f5f5;
+        }
+        .server-banner-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        @media (min-width: 1530px) {
+            .server-banner-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .server-banner-textbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: calc(25% - 10px);
+            color: #444;
+        }
+        .server-banner-textbox-title{
+            font-size: 32px;
+            font-weight: 700;
+            padding: 12px;
+        }
+        .server-banner-textbox-line{
+            background-color: #5EAAA5;
+            height: 2px;
+            width: 72%;
+            margin: 10px 0;
+        }
+        .server-banner-textbox-text{
+            width: 72%;
+            font-size: 20px;
+            line-height: 1.5 ;
+            text-align: center;
+            font-weight: 500;
+            color: #888;
+        }
+
+
+        .server-banner-imagebox{
+            width: calc(75% - 10px);
+            position: relative;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+            aspect-ratio: 2/1;
+        }
+        .server-banner-imagebox img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 90%;
+        }
+        .promise-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        @media (min-width: 1530px) {
+            .promise-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .promise-textbox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: calc(33.333333% - 10px);
+            color: #666;
+        }
+        .promise-textbox-title{
+            font-size: 30px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            color: #655D5D;
+
+        }
+        .promise-textbox-line{
+            background-color: #97E44A;
+            height: 2px;
+            width: 72%;
+            margin: 10px 0;
+        }
+        .promise-textbox-text{
+            width: 72%;
+            font-size: 14px;
+            line-height: 1.5 ;
+        }
+
+
+        .promise-imagebox{
+            width: calc(66.6666% - 10px);
+            aspect-ratio: 5/3;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+        }
+        .promise-imagebox img{
+            object-fit: cover;
+            object-position: center bottom;
+            width: 100%;
+            height: 100%;
+        }
+        .thrive-imagebox{
+            width: calc(66.6666% - 10px);
+            aspect-ratio: 5/3;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+        }
+        .thrive-imagebox img{
+            object-fit: cover;
+            object-position: center 60%;
+            width: 100%;
+            height: 100%;
+        }
+        .design-imagebox{
+            width: calc(66.6666% - 10px);
+            aspect-ratio: 5/3;
+            background-color: #5EAAA5;
+            overflow: hidden;
+            border-radius: 48px;
+        }
+        .design-imagebox img{
+            object-fit: cover;
+            object-position: center 64%;
+            width: 100%;
+            height: 100%;
+        }
+        .ctfc-container{
+            max-width: 1500px ;
+            display: flex;
+            margin: 0px 20px 40px 20px;
+            background: linear-gradient(to bottom, #94D675, #35BA9A);
+            box-sizing: border-box;
+            padding: 20px;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 68px;
+        }
+        @media (min-width: 1530px) {
+            .ctfc-container {
+                margin: 0px auto 40px auto; 
+            }
+        }
+        .ctfc-card{
+            background: linear-gradient(to bottom, #EFEFEF, #E5E5E5);
+            width: calc(50% - 10px);
+            aspect-ratio: 5/3;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 80px;
+            border-radius: 48px;
+            overflow: hidden;
+        }
+        .ctfc-card-title{
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            padding: 10px 0;
+            color: #555;
+        }
+        .ctfc-card-line {
+            height: 1px;
+            width: 100%;
+            background-color: #aaa;
+            margin: 20px 0;
+        }
+        .ctfc-card-text {
+            width: 96%;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .footer-container-container{
+            height: 100%;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            background-color: #655D5D;
+        }
+        .footer-container{
+            display:flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+            background-color: #655D5D;
+            height: 320px;
+            position: relative; 
+            flex-direction: column;
+            max-width: 1500px;
+        }
+        .footer-row{
+            display: flex;
+            width: 84%;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+
+        }
+        .footer-logos{
+
+            width: 150px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .footer-logos img{
+            width: 100%;
+        }
+        .footer-logos-icons{
+            display: flex;
+            flex-direction: row;
+            gap:10px;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .footer-icon{
+            width: 30px;
+        }
+        .footer-buttom{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #ccc;
+            font-weight: 300;
+            border-top: 1px solid #ccc;
+            width: 96%;
+        }
+        .footer-infos{
+
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            line-height: 1.5;
+        }
+        .footer-info-title{
+            color: #fff;
+            padding: 8px 0;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: -12px;
+            
+        }
+        .footer-info-text-1st{
+            display: flex;
+            flex-direction: row;
+
+            justify-content: space-between;
+        }
+        .footer-info-text{
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        .footer-info-text a{
+            color: #ccc;
+        }
+        .footer-info-text a:hover{
+            color: #97E44A;
+            text-decoration: none;
+        }
+        .server-buttom a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #97E44A;
+            height: 36px;
+            width: 180px;
+            text-decoration: none;
+            border-radius: 48px;
+            color: #444;
+            letter-spacing: 2px;
+            /* margin-bottom: 20px; */
+            margin: 80px auto 80px auto;
+        }
+
+        .server-buttom a:hover{
+            border: 1px solid transparent;
+            background-color: #97E44A;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo/GreenDivLogo.svg" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul class="main-ul">
+                <li class="main-li li-a"><a href="goods.html">植物</a></li>
+                <li class="main-li li-b"><a href="">盆器與配件</a></li>
+                <li class="main-li li-c"><a href="">護理指南</a></li>
+                <li class="main-li li-d"><a href="server.html">服務</a></li>
+                <li class="main-li main-about-li li-e">
+                    <a href="about.html">關於</a>
+                    <ul class="about-ul">
+                        <li class="about-li"><a href="about.html">關於我們</a></li>
+                        <li class="about-li"><a href="contact.html">聯絡我們</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="icons">
+                <div class="icon-item"><a href=""><img src="images/icons/serch.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/SquirrelSetup.svg" alt=""></a></div>
+                <div class="icon-item"><a href=""> <img src="images/icons/shop.svg" alt=""></a></div>
+            </div>
+        </nav>
+    </header>
+    <div class="server-banner-container">
+        <div class="server-banner-textbox">
+            <div class="server-banner-textbox-title">我們的服務</div>
+            <div class="server-banner-textbox-text"><p>綠化培育，專業支援</p></div>
+        </div>
+        <div class="server-banner-imagebox">
+            <img src="images/other/server_banner.jpg" alt="">
+        </div>
+    </div>
+    <div class="promise-container">
+        <div class="promise-imagebox">
+            <img src="images/other/promise.webp" alt="">
+        </div>
+        <div class="promise-textbox">
+            <div class="promise-textbox-title">我們保證</div>
+            <div class="promise-textbox-line"></div>
+            <div class="promise-textbox-text"><p>　　當您在 &lt;Green div&gt; 選購時，我們承諾為您提供經過嚴選的桃園市大溪區栽培觀葉植物，每一株都經過細心的品質、健康、美觀及尺寸檢驗。我們堅持從我們信任的本地種植夥伴處採購，以確保您得到最佳的植物。</p></div>
+        </div>
+    </div>
+    <div class="promise-container">
+        <div class="promise-textbox">
+            <div class="promise-textbox-title">迎接植物的繁盛成長</div>
+            <div class="promise-textbox-line"></div>
+            <div class="promise-textbox-text"><p>　　我們相信，如果有機會，任何人都可以成功培育出蓬勃茂盛的綠色植物。這就是為什麼每一株 &lt;Green div&gt; 植物都經過我們自己的全天然肥皂、肥料和驅蟲劑清潔、修剪和處理。我們標誌性的分級方法可確保您的植物享有適當的氣流和排水，並且隨著時間的推移將會變得更加美麗。</p></div>
+        </div>
+        <div class="promise-imagebox thrive-imagebox">
+            <img src="images/other/thrive.webp" alt="">
+        </div>
+    </div>
+    <div class="promise-container">
+        <div class="promise-imagebox design-imagebox">
+            <img src="images/other/design.webp" alt="">
+        </div>
+        <div class="promise-textbox">
+            <div class="promise-textbox-title">優質的設計</div>
+            <div class="promise-textbox-line"></div>
+            <div class="promise-textbox-text"><p>　　我們將植物與最優質的炻瓷搭配，這種環保炻瓷以其耐用而奢華的觸感和實用的防水性能而聞名。我們選擇這種環保材質，不僅因為其美觀，也因其對地球的友好。植物盆栽的設計旨在獲得最佳的氣流和排水效果，並且我們使用經過精心挑選的、來自可持續管理森林的苔蘚進行裝飾，這不僅保護了生物多樣性，也展示了我們對環境保護的承諾。</p></div>
+        </div>
+    </div>
+    <div class="ctfc-container">
+        <div class="ctfc-card">
+            <div class="ctfc-card-title">45天保證</div>
+            <div class="ctfc-card-line"></div>
+            <div class="ctfc-card-text">有生命、會呼吸的植物就像我們一樣，它們需要一些時間來適應不斷變化的環境。這就是為什麼每個 &lt;Green div&gt; 植物都提供 45 天保證，即植物適應新家所需的時間。如果它在抵達後 45 天內損壞， 我們將進行更換。</div>
+        </div>
+        <div class="ctfc-card">
+            <div class="ctfc-card-title">植物醫生</div>
+            <div class="ctfc-card-line"></div>
+            <div class="ctfc-card-text">&lt;Green div&gt; 的客戶可以享受無限次的植物醫生諮詢，以確保植物的健康和長壽。我們的植物醫生是經過認證的園藝師和園丁大師，滿足您的任何需求。不需再從Google上搜尋矛盾的資訊，歡迎諮詢我們的免費服務獲得實際的幫助。</div>
+        </div>
+    </div>
+    <div class="server-buttom">
+        <a href=""><p>聯絡我們</p></a>
+    </div>
+    <div class="footer-container-container">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-infos">
+                    <div class="footer-info-1st">
+                        <div class="footer-info-title footer-info-1st-title">綠化無限</div>
+                        <div class="footer-info-text-1st">
+                            <div class="footer-info-text"><a href="">隱私政策</a></div>
+                            <div class="footer-info-text"><a href="">服務條款</a></div>
+                            <div class="footer-info-text"><a href="">門市資訊</a></div>
+                            <div class="footer-info-text"><a href="">會員權益</a></div>
+                            <div class="footer-info-text"><a href="">加入我們</a></div>
+                        </div>
+                    </div>
+                    <div class="footer-info-2nd">
+                        <div class="footer-info-title footer-info-2nd">聯絡資訊</div>
+                            <div class="footer-info-text-2nd">
+                            <div class="footer-info-text footer-info-text-2nd">客服專線：03 - 2560883</div>
+                            <div class="footer-info-text footer-info-text-2nd">客服時間：週二至週六 9:00-15:00</div>
+                            <div class="footer-info-text footer-info-text-2nd">信箱：<a href="">service.taiwan@green.div.com</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-logos">
+                    <div class="footer-logos-logo"><img src="images/logo/GreenDivLogo-07.svg"></div>
+                    <div class="footer-logos-icons">
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Facebook_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _Instagram_.svg"></a></div>
+                        <div class="footer-icon"><a href=""><img src="images/icons/icon _YouTube_.svg"></a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-buttom">
+            <p>Copyright © 台灣昆迪芙股份有限公司 All Rights Reserved. 本網站為緯育TibaMe前端工程師班第80期學員專題作品，本平台僅供學習、展示之用。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
