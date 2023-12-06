@@ -1,0 +1,300 @@
+::selection {
+    background: rgba(151, 228, 74, 0.5);
+    /* 黄绿色背景，50% 不透明度 */
+}
+::-moz-selection {
+    background: rgba(151, 228, 74, 0.5);
+}
+header {
+    display: flex;
+    max-width: 1520px;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+    background-color: #fff;
+    margin: auto;
+}
+
+.logo {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.logo img {
+    width: 120px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+nav .main-ul {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav .main-ul a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+nav > .main-ul a:hover {
+    transition: none;
+    font-weight: 500;
+    color: #3D7E92;
+}
+.main-about-li {
+    position: relative;
+    display: block;
+    padding: 12px;
+}
+.main-about-li:hover {
+    font-weight: 500;
+    color: #3D7E92;
+    cursor: default;
+}
+
+.about-ul {
+    position: absolute;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 20px;
+    display: none;
+    background-color: #fff6;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #ccc;
+    z-index: 1;
+    box-shadow: 0 4px 10px #0002;
+    padding: 12px 0;
+}
+
+.about-ul a {
+    height: 18px;
+}
+.main-about-li:hover > .about-ul {
+    display: flex;
+}
+
+.main-about-li:hover .about-ul a:hover {
+    font-weight: 500;
+    color: #0008;
+}
+
+nav .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.icon-item {
+    width: 40px;
+}
+
+.icon-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: #fff;
+    /* width: 100px; */
+    /* height: 20px; */
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.icon-item a:hover {
+    /* color: #655D5D; */
+    color: #0E677B;
+    background-color: #f5f5f5;
+}
+
+.leaves-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leaf1 {
+    height: 60px;
+}
+
+.leaf2 {
+    height: 70px;
+}
+
+.leaf3 {
+    height: 65px;
+}
+
+.leaf4 {
+    height: 60px;
+}
+
+.leaf5 {
+    height: 65px;
+}
+
+.leaf1:hover path {
+    fill: #97E44A;
+    transition: none;
+}
+
+.leaf2:hover path {
+    fill: #97E44A;
+    transition: none;
+}
+
+.leaf3:hover path {
+    fill: #97E44A;
+    transition: none;
+}
+
+.leaf4:hover path {
+    fill: #97E44A;
+    transition: none;
+}
+
+.leaf5:hover path {
+    fill: #97E44A;
+    transition: none;
+}
+
+.leaf1 path,
+.leaf2 path,
+.leaf3 path,
+.leaf4 path,
+.leaf5 path {
+    transition: fill 1.2s ease;
+    /* 指定過渡效果作用於 fill 屬性，持續 0.3 秒，使用 ease 時間函數 */
+}
+
+
+.leaves-container {
+    padding: 20px 40px;
+    max-width: 1460px;
+    margin: auto;
+}
+.footer-container-container{
+    height: 100%;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    background-color: #655D5D;
+}
+.footer-container{
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    background-color: #655D5D;
+    height: 320px;
+    position: relative; 
+    flex-direction: column;
+    max-width: 1500px;
+}
+.footer-row{
+    display: flex;
+    width: 84%;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+.footer-logos {
+
+    width: 150px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+.footer-logos img {
+    width: 100%;
+}
+.footer-logos-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-icon {
+    width: 30px;
+}
+.footer-buttom {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #ccc;
+    font-weight: 300;
+    border-top: 1px solid #ccc;
+    width: 96%;
+}
+
+.footer-infos {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 50%;
+    height: 82%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+.footer-info-title {
+    color: #fff;
+    padding: 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+.footer-info-text-1st {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer-info-text {
+    color: #ccc;
+}
+.footer-info-text a {
+    color: #ccc;
+    text-decoration: none;            
+}
+.footer-info-text a:hover {
+    position: relative;
+}
+.footer-info-text a:hover::after {
+    text-decoration: none;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    /* 调整与文本的间距 */
+    border-bottom: 2px solid;
+    /* 调整粗细 */
+    width: 100%;
+}

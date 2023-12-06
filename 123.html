@@ -1,52 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>簡易畫板</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu Example</title>
     <style>
-        #canvas {
-            border: 1px solid black;
-        }
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    background: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 15px;
+    left: 30px;
+    
+    z-index: 1;
+    
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    cursor: pointer;
+    
+    opacity: 0; /* Hide checkbox */
+    z-index: 2; /* Make it clickable */
+}
+
+#menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    
+    background: #ffffff;
+    border-radius: 3px;
+    
+    z-index: 1;
+    
+    transform-origin: 4px 0px;
+    
+    transition: transform 0.5s, background 0.5s, opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    
+    /* Make the menu look nicer */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+/* Show menu when checked */
+#menuToggle input:checked ~ ul {
+    transform: none;
+}
+
+/* Larger screens */
+@media screen and (min-width: 768px) {
+    #menuToggle {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        background: none;
+        transform: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        padding: 0 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
     </style>
 </head>
 <body>
-
-<h3>簡易畫板</h3>
-<canvas id="canvas" width="800" height="600"></canvas>
-
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    let painting = false;
-
-    function startPosition(e) {
-        painting = true;
-        draw(e);
-    }
-
-    function finishedPosition() {
-        painting = false;
-        ctx.beginPath();
-    }
-
-    function draw(e) {
-        if (!painting) return;
-        ctx.lineWidth = 5;
-        ctx.lineCap = 'round';
-
-        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    }
-
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', finishedPosition);
-    canvas.addEventListener('mousemove', draw);
-});
-
-</script>
-
+    <nav>
+        <div id="menuToggle">
+            <!-- Hidden checkbox, is used as click reciever for :checked -->
+            <input type="checkbox" />
+            
+            <!-- Hamburger icon -->
+            <span></span>
+            <span></span>
+            <span></span>
+            
+            <!-- Menu -->
+            <ul id="menu">
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>About</li></a>
+                <a href="#"><li>Services</li></a>
+                <a href="#"><li>Contact</li></a>
+            </ul>
+        </div>
+    </nav>
 </body>
 </html>
