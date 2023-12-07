@@ -74,8 +74,8 @@
 
         }
         .main-ul {
-            margin: 60px;
-            background-color: #ccc;
+            margin: 40px;
+            background-color: #fff;
             font-weight: 400;
             font-size: 24px;
         }
@@ -83,6 +83,22 @@
             text-decoration: none;
             color: #000;
         }
+        .about-toggle {
+            display: none;
+        }
+        .about-ul {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+
+        .about-toggle:checked ~ .about-label .about-ul {
+            height: 200px; /* 或者設置為具體的最大高度，視你的內容而定 */
+        }
+        .about-label image{
+            width: 8px;
+        }
+
         #burger {
             display: none;
         }
@@ -95,6 +111,16 @@
             background-color: chocolate;
             margin: 0 60px;
         }
+        .main-li {
+            padding: 20px 0;
+            background-color: aquamarine;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .about-li {
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+        } 
 
 
         .banner-container {
@@ -116,6 +142,7 @@
         @media (width > 768px) {
             .banner-imgbox{
                 aspect-ratio: 5/2;
+                border-radius: 48px;
             }
         }
         .banner-imgbox img{
@@ -201,13 +228,19 @@
                         <a href=""><li class="main-li li-b">盆器與配件</li></a>
                         <a href=""><li class="main-li li-c">護理指南</li></a>
                         <a href="server.html"><li class="main-li li-d">服務</li></a>
-                        <li class="main-li main-about-li li-e">
-                            關於
-                            <ul class="about-ul">
+                        <input type="checkbox" id="about-toggle" class="about-toggle">
+                        <label for="about-toggle" class="about-label">
+                            <li class="main-li main-about-li li-e">
+                                關於
+                                <img src="images/icons/down.svg">
+                                <ul class="about-ul">
                                 <li class="about-li"><a href="about.html">關於我們</a></li>
                                 <li class="about-li"><a href="contact.html">聯絡我們</a></li>
-                            </ul>
-                        </li>
+                                </ul>
+                            </li>
+                        </label>
+                        
+                        
                     </ul>
                     <div class="icons">
                         <div class="icon-item"><a href=""><img src="images/icons/serch.svg" alt="搜尋"></a></div>
