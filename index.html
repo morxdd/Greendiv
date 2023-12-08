@@ -75,28 +75,26 @@
         }
         .main-ul {
             margin: 40px;
-            background-color: #fff;
             font-weight: 400;
             font-size: 24px;
+            border: 2px solid salmon;
         }
-        .main-ul a {
-            text-decoration: none;
-            color: #000;
-        }
+        
         .about-toggle {
             display: none;
         }
         .about-ul {
             height: 0;
             overflow: hidden;
+            background-color: #0a0;
             transition: height 0.3s ease;
         }
 
         .about-toggle:checked ~ .about-label .about-ul {
-            height: 200px; /* 或者設置為具體的最大高度，視你的內容而定 */
+            height: 120px;
         }
         .about-label image{
-            width: 8px;
+            width: auto;
         }
 
         #burger {
@@ -109,22 +107,40 @@
         }
         .icons {
             background-color: chocolate;
-            margin: 0 60px;
+            margin: 0 40px;
         }
-        .main-li {
+        .icon-item {
+            width: 24px;
+            margin: 20px 0;
+        }
+        .icon-item img {
+            width: 100%;
+        }
+
+
+        .main-li a{
             height: 60px;
+            width: 100%;
             line-height: 60px;
             background-color: aquamarine;
             border-bottom: 1px solid #ccc;
             box-sizing: border-box;
-            padding: 0 20px;
+            display: block;
         }
-        
-        .about-li {
+        .about-label > .main-about-ul {
+            background-color: #00a;
+            display: block;
             padding: 20px 0;
             border-bottom: 1px solid #ccc;
+        }
+        .about-li a{
+            padding: 0;
+            border-bottom: 1px solid #ccc;
             background-color: cornflowerblue;
-            z-index: 200;
+            display: block;
+            width: 100%;
+            z-index: 2;
+            padding: 20px 0;
         } 
 
 
@@ -229,26 +245,26 @@
                 <div id="panel">
                     <label for="burger" class="burgerbox xx"><img src="images/icons/xx.svg" alt=""></label>
                     <ul class="main-ul">
-                        <a href="goods.html"><li class="main-li li-a">植物</li></a>
-                        <a href=""><li class="main-li li-b">盆器與配件</li></a>
-                        <a href=""><li class="main-li li-c">護理指南</li></a>
-                        <a href="server.html"><li class="main-li li-d">服務</li></a>
+                        <li class="main-li li-a"><a href="goods.html">植物</a></li>
+                        <li class="main-li li-b"><a href="">盆器與配件</a></li>
+                        <li class="main-li li-c"><a href="">護理指南</a></li>
+                        <li class="main-li li-d"><a href="server.html">服務</a></li>
                         <input type="checkbox" id="about-toggle" class="about-toggle">
                         <label for="about-toggle" class="about-label">
-                            <li class="main-li main-about-li li-e">
+                            <li class="main-li main-about-ul li-e">
                                 關於
                                 <img src="images/icons/down.svg">
-                                <ul class="about-ul">
+                            </li>
+                            <ul class="about-ul">
                                 <li class="about-li"><a href="about.html">關於我們</a></li>
                                 <li class="about-li"><a href="contact.html">聯絡我們</a></li>
-                                </ul>
-                            </li>
+                            </ul>
                         </label>
                     </ul>
                     <div class="icons">
-                        <div class="icon-item"><a href=""><img src="images/icons/serch.svg" alt="搜尋"></a></div>
-                        <div class="icon-item"><a href=""> <img src="images/icons/SquirrelSetup.svg" alt="帳戶"></a></div>
-                        <div class="icon-item"><a href=""> <img src="images/icons/shop.svg" alt="購物車"></a></div>
+                        <div class="icon-item"><a href="#"><img src="images/icons/serch.svg" alt="搜尋"></a></div>
+                        <div class="icon-item"><a href="#"> <img src="images/icons/SquirrelSetup.svg" alt="帳戶"></a></div>
+                        <div class="icon-item"><a href="#"> <img src="images/icons/shop.svg" alt="購物車"></a></div>
                     </div>
                 </div>
             </div>
